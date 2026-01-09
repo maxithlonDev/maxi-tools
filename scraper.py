@@ -1,0 +1,22 @@
+import requests
+from urls import LOGIN_URL
+
+
+def login(username: str, password: str) -> requests.Session:
+    session = requests.Session()
+
+    payload = {
+        "user": username,
+        "password": password,
+        "id_gioco": "1",
+        "user_control": "Login",
+    }
+
+    resp = session.post(LOGIN_URL, data=payload)
+    resp.raise_for_status()
+
+    # hard login check
+    if "logout" not in resp.text.lower():
+        raise ValueError("Login failed")
+
+    return session
