@@ -2,7 +2,7 @@ import requests
 from urls import LOGIN_URL
 
 
-def login(username: str, password: str) -> requests.Session:
+def login(username: str, password: str):
     session = requests.Session()
 
     payload = {
@@ -19,4 +19,5 @@ def login(username: str, password: str) -> requests.Session:
     if "logout" not in resp.text.lower():
         raise ValueError("Login failed")
 
-    return session
+    # return raw HTML for downstream parsing
+    return session, resp.text

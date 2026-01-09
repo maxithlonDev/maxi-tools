@@ -4,6 +4,23 @@ from bs4 import BeautifulSoup
 from urls import ATHLETES_URL
 
 
+def extract_logged_in_username(html: str) -> str:
+    soup = BeautifulSoup(html, "html.parser")
+
+    left = soup.find("div", id="left_section")
+    if not left:
+        raise ValueError("Could not locate user section")
+
+    user_link = left.find(
+        "a",
+        href=lambda x: x and "dettagli_utente.php" in x
+    )
+    if not user_link:
+        raise ValueError("Could not extract username")
+
+    return user_link.get_text(strip=True)
+
+
 def export_athlete_csv(session) -> bytes:
     resp = session.get(ATHLETES_URL)
     resp.raise_for_status()
