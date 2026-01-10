@@ -73,7 +73,7 @@ def export_athlete_csv(session) -> bytes:
     writer.writerow([
         "Name", "Age", "MAXID", "fans", "care", "form",
         "str", "sta", "spe", "agi", "jmp", "thr", "sp1", "sp2",
-        "height", "weight", "exp", "wage"
+        "hei", "wei", "exp", "wage"
     ])
     writer.writerows(rows)
 
