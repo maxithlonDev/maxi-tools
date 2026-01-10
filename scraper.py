@@ -1,5 +1,5 @@
 import requests
-from urls import LOGIN_URL
+import urls as url_utils
 
 
 def login(username: str, password: str):
@@ -12,7 +12,7 @@ def login(username: str, password: str):
         "user_control": "Login",
     }
 
-    resp = session.post(LOGIN_URL, data=payload)
+    resp = session.post(url_utils.LOGIN_URL, data=payload)
     resp.raise_for_status()
 
     # hard login check

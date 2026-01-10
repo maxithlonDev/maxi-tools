@@ -3,7 +3,7 @@ import streamlit as st
 from scraper import login
 from scraper_utils import (
     export_athlete_csv,
-    extract_logged_in_username,
+    extract_logged_in_user_data,
 )
 
 # -------------------------
@@ -14,6 +14,9 @@ if "session" not in st.session_state:
 
 if "username" not in st.session_state:
     st.session_state.username = None
+
+if "user_id" not in st.session_state:
+    st.session_state.user_id = None
 
 if "csv_data" not in st.session_state:
     st.session_state.csv_data = None
@@ -33,15 +36,24 @@ if st.session_state.session is None:
     if submitted:
         try:
             session, login_html = login(username, password)
-            display_name = extract_logged_in_username(login_html)
 
+            username_display, user_id = extract_logged_in_user_data(login_html)
+
+            # only set state if EVERYTHING succeeded
             st.session_state.session = session
-            st.session_state.username = display_name
+            st.session_state.username = username_display
+            st.session_state.user_id = user_id
+
             st.rerun()
 
-        except ValueError:
-            st.error("Login failed")
+        except Exception:
+            # hard reset on any failure
+            st.session_state.session = None
+            st.session_state.username = None
+            st.session_state.user_id = None
+            st.session_state.csv_data = None
 
+            st.error("Login failed")
     st.stop()
 
 
