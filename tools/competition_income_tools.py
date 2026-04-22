@@ -130,8 +130,14 @@ def get_first_place_income(
     html: str,
 ) -> int:
     comp_type = extract_competition_type(html)
+    comp_name = extract_competition_name(html)
     nation_id = extract_competition_nation_id(html)
-    return get_first_place_award_for_type(session, nation_id, comp_type)
+    return get_first_place_award_for_type(
+        session,
+        nation_id,
+        comp_type,
+        comp_name,
+    )
 
 
 def get_paid_places(
@@ -139,8 +145,14 @@ def get_paid_places(
     html: str,
 ) -> int:
     comp_type = extract_competition_type(html)
+    comp_name = extract_competition_name(html)
     nation_id = extract_competition_nation_id(html)
-    return get_paid_places_for_type(session, nation_id, comp_type)
+    return get_paid_places_for_type(
+        session,
+        nation_id,
+        comp_type,
+        comp_name,
+    )
 
 
 def extract_first_event_id(html: str) -> int:

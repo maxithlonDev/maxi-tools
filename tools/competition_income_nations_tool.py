@@ -2,13 +2,50 @@ import requests
 from bs4 import BeautifulSoup
 
 
-COMP_TYPE_TO_COL_IDX = {
-    "Olympic Games": 1,
-    "World championship": 2,
-    "World U21 Championships": 3,
-    "World Junior Championships": 4,
-    "World Master Championships": 5,
-    "Individual National Championship": 6,
+WORLD_FIRST_PLACE = {
+    "Olympic Games": 80000,
+    "World championship": 80000,
+    "World U21 Championships": 40000,
+    "World Junior Championships": 40000,
+    "World Master Championships": 40000,
+}
+
+WORLD_PAID_PLACES = {
+    "Olympic Games": 30,
+    "World championship": 30,
+    "World U21 Championships": 25,
+    "World Junior Championships": 25,
+    "World Master Championships": 25,
+}
+
+CONTINENTAL_FIRST_PLACE = {
+    "Continental Championships": {
+        "Europe": 64098,
+        "Asia - Africa - Pacific": 40752,
+        "America": 43120,
+    },
+    "Continental U21 Championships": {
+        "Europe": 25865,
+        "Asia - Africa - Pacific": 5113,
+        "America": 7218,
+    },
+    "Continental Junior Championships": {
+        "Europe": 25865,
+        "Asia - Africa - Pacific": 5113,
+        "America": 7218,
+    },
+    "Continental Master Championships": {
+        "Europe": 25865,
+        "Asia - Africa - Pacific": 5113,
+        "America": 7218,
+    },
+}
+
+CONTINENTAL_PAID_PLACES = {
+    "Continental Championships": 20,
+    "Continental U21 Championships": 15,
+    "Continental Junior Championships": 15,
+    "Continental Master Championships": 15,
 }
 
 
@@ -37,13 +74,15 @@ def _build_awards_rows(html: str):
     return rows
 
 
-def extract_first_place_award(html: str, comp_type: str) -> int:
-    if comp_type not in COMP_TYPE_TO_COL_IDX:
-        raise ValueError(
-            "First place income not implemented for this competition type"
-        )
+def _extract_continental_area(comp_name: str) -> str:
+    if "Europe" in comp_name:
+        return "Europe"
+    if "America" in comp_name:
+        return "America"
+    return "Asia - Africa - Pacific"
 
-    col_idx = COMP_TYPE_TO_COL_IDX[comp_type]
+
+def extract_individual_national_first(html: str) -> int:
     rows = _build_awards_rows(html)
 
     for tr in rows:
@@ -52,10 +91,10 @@ def extract_first_place_award(html: str, comp_type: str) -> int:
             continue
 
         if tds[0].get_text(strip=True) == "1":
-            if len(tds) <= col_idx:
-                raise ValueError("Requested awards column not found")
+            if len(tds) <= 6:
+                raise ValueError("Individual National Championship column not found")
 
-            raw = tds[col_idx].get_text(strip=True)
+            raw = tds[6].get_text(strip=True)
             raw = raw.replace(".", "").replace(",", "").strip()
 
             if not raw:
@@ -66,15 +105,8 @@ def extract_first_place_award(html: str, comp_type: str) -> int:
     raise ValueError("First place row not found")
 
 
-def extract_paid_places(html: str, comp_type: str) -> int:
-    if comp_type not in COMP_TYPE_TO_COL_IDX:
-        raise ValueError(
-            "Paid places not implemented for this competition type"
-        )
-
-    col_idx = COMP_TYPE_TO_COL_IDX[comp_type]
+def extract_individual_national_paid_places(html: str) -> int:
     rows = _build_awards_rows(html)
-
     paid_places = 0
 
     for tr in rows:
@@ -86,10 +118,10 @@ def extract_paid_places(html: str, comp_type: str) -> int:
         if not place_text.isdigit():
             continue
 
-        if len(tds) <= col_idx:
+        if len(tds) <= 6:
             continue
 
-        raw = tds[col_idx].get_text(strip=True)
+        raw = tds[6].get_text(strip=True)
         raw = raw.replace(".", "").replace(",", "").strip()
 
         if raw:
@@ -105,18 +137,39 @@ def get_first_place_award_for_type(
     session: requests.Session,
     nation_id: int,
     comp_type: str,
+    comp_name: str,
 ) -> int:
-    html = fetch_ind_awards_html(session, nation_id)
-    return extract_first_place_award(html, comp_type)
+    if comp_type == "Individual National Championship":
+        html = fetch_ind_awards_html(session, nation_id)
+        return extract_individual_national_first(html)
+
+    if comp_type in WORLD_FIRST_PLACE:
+        return WORLD_FIRST_PLACE[comp_type]
+
+    if comp_type in CONTINENTAL_FIRST_PLACE:
+        area = _extract_continental_area(comp_name)
+        return CONTINENTAL_FIRST_PLACE[comp_type][area]
+
+    raise ValueError("First place income not implemented for this competition type")
 
 
 def get_paid_places_for_type(
     session: requests.Session,
     nation_id: int,
     comp_type: str,
+    comp_name: str,
 ) -> int:
-    html = fetch_ind_awards_html(session, nation_id)
-    return extract_paid_places(html, comp_type)
+    if comp_type == "Individual National Championship":
+        html = fetch_ind_awards_html(session, nation_id)
+        return extract_individual_national_paid_places(html)
+
+    if comp_type in WORLD_PAID_PLACES:
+        return WORLD_PAID_PLACES[comp_type]
+
+    if comp_type in CONTINENTAL_PAID_PLACES:
+        return CONTINENTAL_PAID_PLACES[comp_type]
+
+    raise ValueError("Paid places not implemented for this competition type")
 
 
 def extract_nation_ids_from_html(html: str) -> list[int]:
@@ -145,10 +198,7 @@ def build_individual_national_max_map(
     result = {}
 
     for nation_id in nation_ids:
-        result[nation_id] = get_first_place_award_for_type(
-            session,
-            nation_id,
-            "Individual National Championship",
-        )
+        html = fetch_ind_awards_html(session, nation_id)
+        result[nation_id] = extract_individual_national_first(html)
 
     return result
