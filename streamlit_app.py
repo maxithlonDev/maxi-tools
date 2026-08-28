@@ -573,13 +573,7 @@ def render_inc_competition_ids_tool():
             )
 
         try:
-            (
-                outputs,
-                timings,
-                country_count,
-                competition_count,
-                latest_season,
-            ) = get_inc_competitions_json(
+            result = get_inc_competitions_json(
                 st.session_state.session,
                 progress_callback=(
                     update_progress
@@ -589,19 +583,19 @@ def render_inc_competition_ids_tool():
             placeholder.empty()
 
             st.session_state.inc_outputs = (
-                outputs
+                result["outputs"]
             )
             st.session_state.inc_timings = (
-                timings
+                result["timings"]
             )
             st.session_state.inc_country_count = (
-                country_count
+                result["country_count"]
             )
             st.session_state[
                 "inc_competition_count"
-            ] = competition_count
+            ] = result["competition_count"]
             st.session_state.inc_latest_season = (
-                latest_season
+                result["latest_season"]
             )
 
         except Exception as e:
