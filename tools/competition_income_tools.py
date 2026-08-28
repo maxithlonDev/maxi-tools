@@ -1,5 +1,6 @@
 import csv
 import io
+from urllib.parse import parse_qs, urlparse
 
 import requests
 from bs4 import BeautifulSoup
@@ -22,8 +23,6 @@ VALID_OFFICIAL_TYPES = {
     "Continental U21 Championships",
     "Continental Master Championships",
 }
-
-RELEVANT_EVENT_OFFSETS = list(range(48)) + [53, 59, 67, 78]
 
 NO_CLUB_NAME = "No Club"
 
@@ -91,15 +90,21 @@ def extract_competition_name(html: str) -> str:
             return text
 
     for tr in soup.find_all("tr"):
-        tds = tr.find_all("td")
+        tds = tr.find_all("td", recursive=False)
+
         if len(tds) < 2:
             continue
 
         label = tds[0].get_text(" ", strip=True)
-        if label not in {"Competition:", "Competitions:"}:
+
+        if label not in {
+            "Competition:",
+            "Competitions:",
+        }:
             continue
 
         name = tds[1].get_text(" ", strip=True)
+
         if name:
             return name
 
@@ -109,16 +114,43 @@ def extract_competition_name(html: str) -> str:
 def extract_competition_nation_id(html: str) -> int:
     soup = BeautifulSoup(html, "html.parser")
 
+    subh3 = soup.find("div", class_="subh3")
+
+    if subh3 is not None:
+        nation_link = subh3.find(
+            "a",
+            href=lambda href: (
+                href
+                and "geo_nazione.php?n=" in href
+            ),
+        )
+
+        if nation_link is not None:
+            href = nation_link["href"]
+            nation_id = (
+                href.split("geo_nazione.php?n=", 1)[1]
+                .split("&", 1)[0]
+            )
+
+            if nation_id.isdigit():
+                return int(nation_id)
+
     nation_link = soup.find(
         "a",
-        href=lambda x: x and "geo_nazione.php?n=" in x,
+        href=lambda href: (
+            href
+            and "geo_nazione.php?n=" in href
+        ),
     )
 
-    if not nation_link:
+    if nation_link is None:
         raise ValueError("Competition nation not found")
 
     href = nation_link["href"]
-    nation_id = href.split("geo_nazione.php?n=", 1)[1].split("&", 1)[0]
+    nation_id = (
+        href.split("geo_nazione.php?n=", 1)[1]
+        .split("&", 1)[0]
+    )
 
     if not nation_id.isdigit():
         raise ValueError("Invalid competition nation")
@@ -129,9 +161,10 @@ def extract_competition_nation_id(html: str) -> int:
 def extract_event_name(html: str) -> str:
     soup = BeautifulSoup(html, "html.parser")
 
-    h3 = soup.find("h3")
-    if h3:
-        text = h3.get_text(" ", strip=True)
+    title = soup.find("title")
+
+    if title is not None:
+        text = title.get_text(" ", strip=True)
 
         if text.startswith("Results - "):
             text = text[len("Results - "):]
@@ -142,9 +175,10 @@ def extract_event_name(html: str) -> str:
         if text:
             return text.strip()
 
-    title = soup.find("title")
-    if title:
-        text = title.get_text(" ", strip=True)
+    h3 = soup.find("h3")
+
+    if h3 is not None:
+        text = h3.get_text(" ", strip=True)
 
         if text.startswith("Results - "):
             text = text[len("Results - "):]
@@ -158,11 +192,15 @@ def extract_event_name(html: str) -> str:
     raise ValueError("Event name not found")
 
 
-def validate_official_individual_competition(html: str) -> None:
+def validate_official_individual_competition(
+    html: str,
+) -> None:
     comp_type = extract_competition_type(html)
 
     if comp_type not in VALID_OFFICIAL_TYPES:
-        raise ValueError("Not an official individual competition")
+        raise ValueError(
+            "Not an official individual competition"
+        )
 
 
 def get_first_place_income(
@@ -197,29 +235,119 @@ def get_paid_places(
     )
 
 
-def extract_first_event_id(html: str) -> int:
-    soup = BeautifulSoup(html, "html.parser")
+def extract_event_id(href: str) -> int | None:
+    parsed = urlparse(href)
+    query = parse_qs(parsed.query)
 
-    event_link = soup.find(
-        "a",
-        href=lambda x: x and "risultati_gara.php?e=" in x,
-    )
+    event_values = query.get("e")
 
-    if not event_link:
-        raise ValueError("First event link not found")
+    if not event_values:
+        return None
 
-    href = event_link["href"]
-    event_id = href.split("risultati_gara.php?e=", 1)[1].split("&", 1)[0]
+    event_id = event_values[0]
 
     if not event_id.isdigit():
-        raise ValueError("Invalid first event id")
+        return None
 
     return int(event_id)
 
 
-def build_relevant_event_ids(html: str) -> list[int]:
-    first_event_id = extract_first_event_id(html)
-    return [first_event_id + offset for offset in RELEVANT_EVENT_OFFSETS]
+def extract_competition_events(
+    html: str,
+) -> list[tuple[int, str]]:
+    soup = BeautifulSoup(html, "html.parser")
+
+    events: list[tuple[int, str]] = []
+    seen_event_ids = set()
+
+    event_tables = soup.find_all(
+        "table",
+        class_="man_events",
+    )
+
+    for table in event_tables:
+        for tr in table.find_all(
+            "tr",
+            recursive=False,
+        ):
+            tds = tr.find_all(
+                "td",
+                recursive=False,
+            )
+
+            if len(tds) < 4:
+                continue
+
+            event_cell = tds[-1]
+
+            event_link = None
+
+            for link in event_cell.find_all(
+                "a",
+                recursive=False,
+            ):
+                href = link.get("href", "")
+
+                if "risultati_gara.php?e=" not in href:
+                    continue
+
+                link_text = link.get_text(
+                    " ",
+                    strip=True,
+                )
+
+                if not link_text:
+                    continue
+
+                event_link = link
+                break
+
+            if event_link is None:
+                continue
+
+            event_id = extract_event_id(
+                event_link["href"]
+            )
+
+            if event_id is None:
+                continue
+
+            if event_id in seen_event_ids:
+                continue
+
+            event_name = event_link.get_text(
+                " ",
+                strip=True,
+            )
+
+            if not event_name:
+                continue
+
+            seen_event_ids.add(event_id)
+            events.append(
+                (
+                    event_id,
+                    event_name,
+                )
+            )
+
+    if not events:
+        raise ValueError(
+            "No competition events found"
+        )
+
+    return events
+
+
+def build_relevant_event_ids(
+    html: str,
+) -> list[int]:
+    return [
+        event_id
+        for event_id, _ in extract_competition_events(
+            html
+        )
+    ]
 
 
 def get_place_income(
@@ -232,14 +360,30 @@ def get_place_income(
     if place == 1:
         return first_place_income
 
-    return int(round(first_place_income * 1.25 / place))
+    return int(
+        round(
+            first_place_income
+            * 1.25
+            / place
+        )
+    )
 
 
-def extract_club_id(href: str | None) -> int | None:
-    if not href or "dettagli_societa.php?u=" not in href:
+def extract_club_id(
+    href: str | None,
+) -> int | None:
+    if not href:
         return None
 
-    club_id = href.split("dettagli_societa.php?u=", 1)[1].split("&", 1)[0]
+    parsed = urlparse(href)
+    query = parse_qs(parsed.query)
+
+    club_values = query.get("u")
+
+    if not club_values:
+        return None
+
+    club_id = club_values[0]
 
     if not club_id.isdigit():
         return None
@@ -247,86 +391,143 @@ def extract_club_id(href: str | None) -> int | None:
     return int(club_id)
 
 
+def find_results_table(
+    soup: BeautifulSoup,
+):
+    for table in soup.find_all(
+        "table",
+        class_="results",
+    ):
+        thead = table.find("thead")
+
+        if thead is None:
+            continue
+
+        headers = [
+            th.get_text(
+                " ",
+                strip=True,
+            ).casefold()
+            for th in thead.find_all("th")
+        ]
+
+        if (
+            "club" in headers
+            or "relay" in headers
+        ):
+            return table
+
+    return None
+
+
+def get_header_index(
+    table,
+    header_name: str,
+) -> int | None:
+    thead = table.find("thead")
+
+    if thead is None:
+        return None
+
+    headers = thead.find_all("th")
+
+    for index, th in enumerate(headers):
+        if (
+            th.get_text(
+                " ",
+                strip=True,
+            ).casefold()
+            == header_name.casefold()
+        ):
+            return index
+
+    return None
+
+
 def extract_place(tr) -> int | None:
-    tds = tr.find_all("td")
+    tds = tr.find_all(
+        "td",
+        recursive=False,
+    )
+
     if not tds:
         return None
 
     first_cell = tds[0]
 
     medal_image = first_cell.find("img")
+
     if medal_image is not None:
-        alt = medal_image.get("alt", "").strip()
+        alt = medal_image.get(
+            "alt",
+            "",
+        ).strip()
+
         if alt.isdigit():
             place = int(alt)
-            return place if place > 0 else None
 
-    text = first_cell.get_text(" ", strip=True)
+            if place > 0:
+                return place
+
+    text = first_cell.get_text(
+        " ",
+        strip=True,
+    )
 
     if not text.isdigit():
         return None
 
     place = int(text)
-    return place if place > 0 else None
 
-
-def find_results_table(soup: BeautifulSoup):
-    for table in soup.find_all("table"):
-        classes = table.get("class", [])
-
-        if "results" not in classes:
-            continue
-
-        header_texts = [
-            th.get_text(" ", strip=True).casefold()
-            for th in table.find_all("th")
-        ]
-
-        if "club" in header_texts:
-            return table
-
-    return None
-
-
-def find_club_column_index(table) -> int | None:
-    header_row = table.find("thead")
-
-    if header_row is None:
+    if place <= 0:
         return None
 
-    headers = header_row.find_all("th")
-
-    for index, th in enumerate(headers):
-        if th.get_text(" ", strip=True).casefold() == "club":
-            return index
-
-    return None
+    return place
 
 
 def extract_individual_club(
     tr,
     club_column_index: int,
 ) -> tuple[int | None, str]:
-    tds = tr.find_all("td")
+    tds = tr.find_all(
+        "td",
+        recursive=False,
+    )
 
     if club_column_index >= len(tds):
         return None, NO_CLUB_NAME
 
-    club_cell = tds[club_column_index]
+    club_cell = tds[
+        club_column_index
+    ]
 
     club_link = club_cell.find(
         "a",
-        href=lambda x: x and "dettagli_societa.php?u=" in x,
+        href=lambda href: (
+            href
+            and "dettagli_societa.php?u="
+            in href
+        ),
     )
 
     if club_link is not None:
-        club_name = club_link.get_text(" ", strip=True)
-        club_id = extract_club_id(club_link.get("href"))
+        club_name = club_link.get_text(
+            " ",
+            strip=True,
+        )
 
         if club_name:
-            return club_id, club_name
+            return (
+                extract_club_id(
+                    club_link.get("href")
+                ),
+                club_name,
+            )
 
-    club_name = club_cell.get_text(" ", strip=True)
+    club_name = club_cell.get_text(
+        " ",
+        strip=True,
+    )
 
     if not club_name:
         return None, NO_CLUB_NAME
@@ -336,47 +537,53 @@ def extract_individual_club(
 
 def extract_relay_club(
     tr,
-    club_column_index: int | None,
+    relay_column_index: int,
 ) -> tuple[int | None, str]:
-    club_link = tr.find(
-        "a",
-        href=lambda x: x and "dettagli_societa.php?u=" in x,
+    tds = tr.find_all(
+        "td",
+        recursive=False,
     )
 
-    if club_link is not None:
-        club_name = club_link.get_text(" ", strip=True)
-        club_id = extract_club_id(club_link.get("href"))
+    if relay_column_index >= len(tds):
+        return None, NO_CLUB_NAME
 
-        if club_name:
-            return club_id, club_name
+    relay_cell = tds[
+        relay_column_index
+    ]
 
-    team_link = tr.find(
+    relay_link = relay_cell.find(
         "a",
-        href=lambda x: x and "staffetta_one.php?sid=" in x,
+        href=lambda href: (
+            href
+            and "staffetta_one.php?sid="
+            in href
+        ),
     )
 
-    if team_link is not None:
-        team_name = team_link.get_text(" ", strip=True)
+    if relay_link is not None:
+        relay_name = relay_link.get_text(
+            " ",
+            strip=True,
+        )
+    else:
+        relay_name = relay_cell.get_text(
+            " ",
+            strip=True,
+        )
 
-        if " 4x" in team_name:
-            team_name = team_name.split(" 4x", 1)[0].strip()
+    if not relay_name:
+        return None, NO_CLUB_NAME
 
-        if team_name:
-            return None, team_name
+    if " 4x" in relay_name:
+        relay_name = relay_name.split(
+            " 4x",
+            1,
+        )[0].strip()
 
-    if club_column_index is not None:
-        tds = tr.find_all("td")
+    if not relay_name:
+        return None, NO_CLUB_NAME
 
-        if club_column_index < len(tds):
-            club_name = tds[club_column_index].get_text(" ", strip=True)
-
-            if " 4x" in club_name:
-                club_name = club_name.split(" 4x", 1)[0].strip()
-
-            if club_name:
-                return None, club_name
-
-    return None, NO_CLUB_NAME
+    return None, relay_name
 
 
 def extract_event_club_results(
@@ -384,23 +591,44 @@ def extract_event_club_results(
     paid_places: int,
     first_place_income: int,
 ) -> list[dict]:
-    soup = BeautifulSoup(html, "html.parser")
+    soup = BeautifulSoup(
+        html,
+        "html.parser",
+    )
+
     table = find_results_table(soup)
 
     if table is None:
-        raise ValueError("Event results table not found")
+        raise ValueError(
+            "Event results table not found"
+        )
 
-    event_name = extract_event_name(html)
-    is_relay = "Relay" in event_name
+    club_column_index = get_header_index(
+        table,
+        "Club",
+    )
 
-    club_column_index = find_club_column_index(table)
+    relay_column_index = get_header_index(
+        table,
+        "Relay",
+    )
 
-    if not is_relay and club_column_index is None:
-        raise ValueError("Club column not found")
+    if (
+        club_column_index is None
+        and relay_column_index is None
+    ):
+        raise ValueError(
+            "Club or relay column not found"
+        )
 
     results = []
 
-    for tr in table.find_all("tr"):
+    tbody_rows = table.find_all(
+        "tr",
+        recursive=False,
+    )
+
+    for tr in tbody_rows:
         place = extract_place(tr)
 
         if place is None:
@@ -409,15 +637,19 @@ def extract_event_club_results(
         if place > paid_places:
             continue
 
-        if is_relay:
-            club_id, club_name = extract_relay_club(
-                tr,
-                club_column_index,
+        if relay_column_index is not None:
+            club_id, club_name = (
+                extract_relay_club(
+                    tr,
+                    relay_column_index,
+                )
             )
         else:
-            club_id, club_name = extract_individual_club(
-                tr,
-                club_column_index,
+            club_id, club_name = (
+                extract_individual_club(
+                    tr,
+                    club_column_index,
+                )
             )
 
         results.append(
@@ -435,6 +667,20 @@ def extract_event_club_results(
     return results
 
 
+def find_matching_id_key(
+    club_stats: dict,
+    club_name: str,
+):
+    for key, stats in club_stats.items():
+        if key[0] != "id":
+            continue
+
+        if stats["name"] == club_name:
+            return key
+
+    return None
+
+
 def add_club_result(
     club_stats: dict,
     club_id: int | None,
@@ -443,10 +689,10 @@ def add_club_result(
     income: int,
 ) -> None:
     if club_id is not None:
-        key = ("id", club_id)
-
-        name_key = ("name", club_name)
-        existing_name_stats = club_stats.pop(name_key, None)
+        key = (
+            "id",
+            club_id,
+        )
 
         if key not in club_stats:
             club_stats[key] = {
@@ -458,29 +704,45 @@ def add_club_result(
                 "bronze": 0,
             }
 
-        stats = club_stats[key]
+        name_key = (
+            "name",
+            club_name,
+        )
 
-        if existing_name_stats is not None:
-            stats["income"] += existing_name_stats["income"]
-            stats["gold"] += existing_name_stats["gold"]
-            stats["silver"] += existing_name_stats["silver"]
-            stats["bronze"] += existing_name_stats["bronze"]
+        old_name_stats = club_stats.pop(
+            name_key,
+            None,
+        )
+
+        if old_name_stats is not None:
+            club_stats[key]["income"] += (
+                old_name_stats["income"]
+            )
+            club_stats[key]["gold"] += (
+                old_name_stats["gold"]
+            )
+            club_stats[key]["silver"] += (
+                old_name_stats["silver"]
+            )
+            club_stats[key]["bronze"] += (
+                old_name_stats["bronze"]
+            )
 
     else:
-        matching_id_key = None
-
-        for existing_key, existing_stats in club_stats.items():
-            if (
-                existing_key[0] == "id"
-                and existing_stats["name"] == club_name
-            ):
-                matching_id_key = existing_key
-                break
+        matching_id_key = (
+            find_matching_id_key(
+                club_stats,
+                club_name,
+            )
+        )
 
         if matching_id_key is not None:
             key = matching_id_key
         else:
-            key = ("name", club_name)
+            key = (
+                "name",
+                club_name,
+            )
 
             if key not in club_stats:
                 club_stats[key] = {
@@ -492,7 +754,7 @@ def add_club_result(
                     "bronze": 0,
                 }
 
-        stats = club_stats[key]
+    stats = club_stats[key]
 
     stats["income"] += income
 
@@ -504,14 +766,59 @@ def add_club_result(
         stats["bronze"] += 1
 
 
+def merge_unlinked_clubs_into_linked(
+    club_stats: dict,
+) -> None:
+    name_keys = [
+        key
+        for key in club_stats
+        if key[0] == "name"
+        and key[1] != NO_CLUB_NAME
+    ]
+
+    for name_key in name_keys:
+        if name_key not in club_stats:
+            continue
+
+        club_name = name_key[1]
+
+        id_key = find_matching_id_key(
+            club_stats,
+            club_name,
+        )
+
+        if id_key is None:
+            continue
+
+        old_stats = club_stats.pop(
+            name_key
+        )
+        target = club_stats[id_key]
+
+        target["income"] += (
+            old_stats["income"]
+        )
+        target["gold"] += (
+            old_stats["gold"]
+        )
+        target["silver"] += (
+            old_stats["silver"]
+        )
+        target["bronze"] += (
+            old_stats["bronze"]
+        )
+
+
 def collect_competition_club_stats(
     session: requests.Session,
     competition_html: str,
     progress_callback=None,
 ) -> list[dict]:
-    first_place_income = get_first_place_income(
-        session,
-        competition_html,
+    first_place_income = (
+        get_first_place_income(
+            session,
+            competition_html,
+        )
     )
 
     paid_places = get_paid_places(
@@ -519,26 +826,48 @@ def collect_competition_club_stats(
         competition_html,
     )
 
-    event_ids = build_relevant_event_ids(competition_html)
+    events = extract_competition_events(
+        competition_html
+    )
 
     club_stats: dict = {}
-    total_events = len(event_ids)
+    total_events = len(events)
 
-    for idx, event_id in enumerate(event_ids, start=1):
-        if progress_callback is not None:
-            progress_callback(idx, total_events, event_id)
-
-        print(f"parsing event id {event_id}")
-
-        event_html = fetch_event_result_html(
-            session,
+    for (
+        index,
+        (
             event_id,
+            event_name,
+        ),
+    ) in enumerate(
+        events,
+        start=1,
+    ):
+        if progress_callback is not None:
+            progress_callback(
+                index,
+                total_events,
+                event_id,
+            )
+
+        print(
+            f"parsing event id "
+            f"{event_id}: {event_name}"
         )
 
-        event_results = extract_event_club_results(
-            event_html,
-            paid_places,
-            first_place_income,
+        event_html = (
+            fetch_event_result_html(
+                session,
+                event_id,
+            )
+        )
+
+        event_results = (
+            extract_event_club_results(
+                event_html,
+                paid_places,
+                first_place_income,
+            )
         )
 
         for result in event_results:
@@ -550,14 +879,28 @@ def collect_competition_club_stats(
                 result["income"],
             )
 
-    result = list(club_stats.values())
+    merge_unlinked_clubs_into_linked(
+        club_stats
+    )
+
+    result = list(
+        club_stats.values()
+    )
 
     result.sort(
         key=lambda club: (
             club["name"] == NO_CLUB_NAME,
             -club["income"],
+            -club["gold"],
+            -club["silver"],
+            -club["bronze"],
             club["name"].casefold(),
-            club["club_id"] if club["club_id"] is not None else -1,
+            (
+                club["club_id"]
+                if club["club_id"]
+                is not None
+                else -1
+            ),
         )
     )
 
@@ -571,16 +914,21 @@ def extract_event_incomes_by_club(
 ) -> dict[str, int]:
     result: dict[str, int] = {}
 
-    for row in extract_event_club_results(
+    rows = extract_event_club_results(
         html,
         paid_places,
         first_place_income,
-    ):
+    )
+
+    for row in rows:
         club_name = row["name"]
-        income = row["income"]
 
         result[club_name] = (
-            result.get(club_name, 0) + income
+            result.get(
+                club_name,
+                0,
+            )
+            + row["income"]
         )
 
     return result
@@ -591,23 +939,20 @@ def collect_competition_incomes_by_club(
     competition_html: str,
     progress_callback=None,
 ) -> dict[str, int]:
-    stats = collect_competition_club_stats(
-        session,
-        competition_html,
-        progress_callback=progress_callback,
+    club_stats = (
+        collect_competition_club_stats(
+            session,
+            competition_html,
+            progress_callback=(
+                progress_callback
+            ),
+        )
     )
 
-    total_by_club: dict[str, int] = {}
-
-    for club in stats:
-        club_name = club["name"]
-
-        total_by_club[club_name] = (
-            total_by_club.get(club_name, 0)
-            + club["income"]
-        )
-
-    return total_by_club
+    return {
+        club["name"]: club["income"]
+        for club in club_stats
+    }
 
 
 def build_income_csv(
@@ -616,7 +961,12 @@ def build_income_csv(
     buf = io.StringIO()
     writer = csv.writer(buf)
 
-    writer.writerow(["club", "income"])
+    writer.writerow(
+        [
+            "club",
+            "income",
+        ]
+    )
 
     rows = sorted(
         incomes_by_club.items(),
@@ -628,9 +978,16 @@ def build_income_csv(
     )
 
     for club_name, income in rows:
-        writer.writerow([club_name, income])
+        writer.writerow(
+            [
+                club_name,
+                income,
+            ]
+        )
 
-    return buf.getvalue().encode("utf-8")
+    return buf.getvalue().encode(
+        "utf-8"
+    )
 
 
 def get_official_comp_income_csv(
@@ -638,21 +995,33 @@ def get_official_comp_income_csv(
     comp_id: int,
     progress_callback=None,
 ) -> tuple[bytes, str]:
-    html = fetch_competition_details_html(
-        session,
-        comp_id,
+    html = (
+        fetch_competition_details_html(
+            session,
+            comp_id,
+        )
     )
 
-    validate_official_individual_competition(html)
-
-    comp_name = extract_competition_name(html)
-
-    incomes_by_club = collect_competition_incomes_by_club(
-        session,
-        html,
-        progress_callback=progress_callback,
+    validate_official_individual_competition(
+        html
     )
 
-    csv_data = build_income_csv(incomes_by_club)
+    comp_name = extract_competition_name(
+        html
+    )
+
+    incomes_by_club = (
+        collect_competition_incomes_by_club(
+            session,
+            html,
+            progress_callback=(
+                progress_callback
+            ),
+        )
+    )
+
+    csv_data = build_income_csv(
+        incomes_by_club
+    )
 
     return csv_data, comp_name
