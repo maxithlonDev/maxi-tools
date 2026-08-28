@@ -615,7 +615,7 @@ def render_inc_competition_ids_tool():
             ] = None
             st.session_state.inc_latest_season = None
 
-            st.error(str(e))
+            st.exception(e)
 
     if st.session_state.inc_outputs is None:
         return

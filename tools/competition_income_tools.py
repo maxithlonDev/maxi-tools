@@ -886,13 +886,6 @@ def collect_competition_club_stats(
                 event_id,
             )
 
-        print(
-            f"parsing event "
-            f"{index}/{total_events}: "
-            f"{event_name} "
-            f"[{event_id}]"
-        )
-
         try:
             event_html = (
                 fetch_event_result_html(
