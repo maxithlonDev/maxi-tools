@@ -1,4 +1,5 @@
 import json
+import re
 import time
 from pathlib import Path
 
@@ -33,8 +34,7 @@ def find_inc_index_path() -> Path:
             return path
 
     raise FileNotFoundError(
-        "Could not find "
-        "Data/inc_competitions.json "
+        "Could not find Data/inc_competitions.json "
         "or data/inc_competitions.json"
     )
 
@@ -42,10 +42,7 @@ def find_inc_index_path() -> Path:
 def load_inc_index() -> dict:
     path = find_inc_index_path()
 
-    with path.open(
-        "r",
-        encoding="utf-8",
-    ) as file:
+    with path.open("r", encoding="utf-8") as file:
         data = json.load(file)
 
     if "countries" not in data:
@@ -96,20 +93,67 @@ def get_target_competitions(
     return competitions
 
 
-def build_inc_history_data(
+def make_filename(
+    country_name: str,
+) -> str:
+    filename_name = re.sub(
+        r"[^a-zA-Z0-9]+",
+        "_",
+        country_name,
+    ).strip("_").lower()
+
+    return (
+        f"inc_{filename_name}_"
+        f"{TARGET_SEASON}.json"
+    )
+
+
+def build_country_json(
+    country_id: str,
+    country_name: str,
+    competition_id: int,
+    club_stats: list[dict],
+) -> bytes:
+    data = {
+        "last_updated_season": TARGET_SEASON,
+        "countries": {
+            country_id: {
+                "name": country_name,
+                "competitions": {
+                    str(TARGET_SEASON): {
+                        "competition_id": competition_id,
+                        "clubs": club_stats,
+                    }
+                },
+            }
+        },
+    }
+
+    return json.dumps(
+        data,
+        ensure_ascii=False,
+        indent=2,
+    ).encode("utf-8")
+
+
+def get_inc_competitions_json(
     session: requests.Session,
     progress_callback=None,
-) -> tuple[dict, int, int]:
+) -> tuple[
+    list[dict],
+    list[dict],
+    int,
+    int,
+    int,
+]:
     index_data = load_inc_index()
 
     target_competitions = get_target_competitions(
         index_data
     )
 
-    output = {
-        "last_updated_season": TARGET_SEASON,
-        "countries": {},
-    }
+    outputs = []
+    timings = []
 
     total = len(target_competitions)
 
@@ -147,54 +191,42 @@ def build_inc_history_data(
             competition_html,
         )
 
-        elapsed = time.perf_counter() - start_time
-
-        print(
-            f"{country_name} season {TARGET_SEASON}: "
-            f"{elapsed:.2f}s"
+        elapsed_seconds = (
+            time.perf_counter()
+            - start_time
         )
 
-        output["countries"][country_id] = {
-            "name": country_name,
-            "competitions": {
-                str(TARGET_SEASON): {
-                    "competition_id": competition_id,
-                    "clubs": club_stats,
-                }
-            },
-        }
+        json_data = build_country_json(
+            country_id,
+            country_name,
+            competition_id,
+            club_stats,
+        )
+
+        outputs.append(
+            {
+                "country_id": int(country_id),
+                "country_name": country_name,
+                "competition_id": competition_id,
+                "file_name": make_filename(
+                    country_name
+                ),
+                "json_data": json_data,
+            }
+        )
+
+        timings.append(
+            {
+                "country_id": int(country_id),
+                "country_name": country_name,
+                "elapsed_seconds": elapsed_seconds,
+            }
+        )
 
     return (
-        output,
+        outputs,
+        timings,
         total,
         total,
-    )
-
-
-def get_inc_competitions_json(
-    session: requests.Session,
-    progress_callback=None,
-) -> tuple[bytes, int, int, int]:
-    (
-        history_data,
-        country_count,
-        competition_count,
-    ) = build_inc_history_data(
-        session,
-        progress_callback=progress_callback,
-    )
-
-    json_data = json.dumps(
-        history_data,
-        ensure_ascii=False,
-        indent=2,
-    ).encode(
-        "utf-8"
-    )
-
-    return (
-        json_data,
-        country_count,
-        competition_count,
         TARGET_SEASON,
     )
