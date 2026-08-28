@@ -17,7 +17,7 @@ INC_INDEX_PATHS = (
     ROOT_DIR / "data" / "inc_competitions.json",
 )
 
-TARGET_COUNTRY_NAME = "Italy"
+TARGET_COUNTRY_NAME = "Italia"
 TARGET_SEASON = 107
 
 
