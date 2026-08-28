@@ -26,6 +26,13 @@ VALID_OFFICIAL_TYPES = {
 
 NO_CLUB_NAME = "No Club"
 
+COMBINED_EVENT_NAMES = {
+    "Pentathlon Men",
+    "Pentathlon Women",
+    "Heptathlon",
+    "Decathlon",
+}
+
 
 def fetch_competition_details_html(
     session: requests.Session,
@@ -67,6 +74,7 @@ def extract_competition_type(html: str) -> str:
                 continue
 
             after = line.split(label, 1)[1].strip()
+
             if after:
                 return after
 
@@ -147,6 +155,7 @@ def extract_competition_nation_id(html: str) -> int:
         raise ValueError("Competition nation not found")
 
     href = nation_link["href"]
+
     nation_id = (
         href.split("geo_nazione.php?n=", 1)[1]
         .split("&", 1)[0]
@@ -252,6 +261,18 @@ def extract_event_id(href: str) -> int | None:
     return int(event_id)
 
 
+def is_combined_event_component(
+    event_name: str,
+) -> bool:
+    return any(
+        event_name.startswith(
+            f"{combined_event_name} - "
+        )
+        for combined_event_name
+        in COMBINED_EVENT_NAMES
+    )
+
+
 def extract_competition_events(
     html: str,
 ) -> list[tuple[int, str]]:
@@ -288,7 +309,10 @@ def extract_competition_events(
             ):
                 href = link.get("href", "")
 
-                if "risultati_gara.php?e=" not in href:
+                if (
+                    "risultati_gara.php?e="
+                    not in href
+                ):
                     continue
 
                 link_text = link.get_text(
@@ -323,7 +347,13 @@ def extract_competition_events(
             if not event_name:
                 continue
 
+            if is_combined_event_component(
+                event_name
+            ):
+                continue
+
             seen_event_ids.add(event_id)
+
             events.append(
                 (
                     event_id,
@@ -344,9 +374,8 @@ def build_relevant_event_ids(
 ) -> list[int]:
     return [
         event_id
-        for event_id, _ in extract_competition_events(
-            html
-        )
+        for event_id, _
+        in extract_competition_events(html)
     ]
 
 
@@ -599,8 +628,11 @@ def extract_event_club_results(
     table = find_results_table(soup)
 
     if table is None:
+        event_name = extract_event_name(html)
+
         raise ValueError(
-            "Event results table not found"
+            f"Event results table not found "
+            f"for {event_name}"
         )
 
     club_column_index = get_header_index(
@@ -617,18 +649,21 @@ def extract_event_club_results(
         club_column_index is None
         and relay_column_index is None
     ):
+        event_name = extract_event_name(html)
+
         raise ValueError(
-            "Club or relay column not found"
+            f"Club or relay column not found "
+            f"for {event_name}"
         )
 
     results = []
 
-    tbody_rows = table.find_all(
+    rows = table.find_all(
         "tr",
         recursive=False,
     )
 
-    for tr in tbody_rows:
+    for tr in rows:
         place = extract_place(tr)
 
         if place is None:
@@ -793,6 +828,7 @@ def merge_unlinked_clubs_into_linked(
         old_stats = club_stats.pop(
             name_key
         )
+
         target = club_stats[id_key]
 
         target["income"] += (
@@ -851,24 +887,35 @@ def collect_competition_club_stats(
             )
 
         print(
-            f"parsing event id "
-            f"{event_id}: {event_name}"
+            f"parsing event "
+            f"{index}/{total_events}: "
+            f"{event_name} "
+            f"[{event_id}]"
         )
 
-        event_html = (
-            fetch_event_result_html(
-                session,
-                event_id,
+        try:
+            event_html = (
+                fetch_event_result_html(
+                    session,
+                    event_id,
+                )
             )
-        )
 
-        event_results = (
-            extract_event_club_results(
-                event_html,
-                paid_places,
-                first_place_income,
+            event_results = (
+                extract_event_club_results(
+                    event_html,
+                    paid_places,
+                    first_place_income,
+                )
             )
-        )
+        except Exception as exc:
+            raise RuntimeError(
+                f"Failed parsing event "
+                f"{index}/{total_events}: "
+                f"{event_name} "
+                f"[EVENTID={event_id}]: "
+                f"{exc}"
+            ) from exc
 
         for result in event_results:
             add_club_result(
