@@ -1,4 +1,5 @@
 import json
+import time
 from pathlib import Path
 
 import requests
@@ -17,7 +18,12 @@ INC_INDEX_PATHS = (
     ROOT_DIR / "data" / "inc_competitions.json",
 )
 
-TARGET_COUNTRY_ID = 1
+TARGET_COUNTRY_IDS = (
+    1,   # Italia
+    18,  # United States
+    57,  # Al-Jazā'ir
+)
+
 TARGET_SEASON = 107
 
 
@@ -44,59 +50,50 @@ def load_inc_index() -> dict:
 
     if "countries" not in data:
         raise ValueError(
-            "INC competition index "
-            "has no countries"
+            "INC competition index has no countries"
         )
 
     return data
 
 
-def get_target_competition(
+def get_target_competitions(
     index_data: dict,
-) -> tuple[str, str, int]:
-    country_id = str(
-        TARGET_COUNTRY_ID
-    )
+) -> list[tuple[str, str, int]]:
+    competitions = []
 
-    country_data = (
-        index_data["countries"].get(
+    for target_country_id in TARGET_COUNTRY_IDS:
+        country_id = str(target_country_id)
+
+        country_data = index_data["countries"].get(
             country_id
         )
-    )
 
-    if country_data is None:
-        raise ValueError(
-            f"Country ID "
-            f"{TARGET_COUNTRY_ID} "
-            f"not found"
-        )
+        if country_data is None:
+            raise ValueError(
+                f"Country ID {target_country_id} not found"
+            )
 
-    season_key = str(
-        TARGET_SEASON
-    )
-
-    competition_id = (
-        country_data[
+        competition_id = country_data[
             "competitions"
         ].get(
-            season_key
-        )
-    )
-
-    if competition_id is None:
-        raise ValueError(
-            f"No season "
-            f"{TARGET_SEASON} "
-            f"INC found for "
-            f"country ID "
-            f"{TARGET_COUNTRY_ID}"
+            str(TARGET_SEASON)
         )
 
-    return (
-        country_id,
-        country_data["name"],
-        int(competition_id),
-    )
+        if competition_id is None:
+            raise ValueError(
+                f"No season {TARGET_SEASON} INC found "
+                f"for country ID {target_country_id}"
+            )
+
+        competitions.append(
+            (
+                country_id,
+                country_data["name"],
+                int(competition_id),
+            )
+        )
+
+    return competitions
 
 
 def build_inc_history_data(
@@ -105,69 +102,72 @@ def build_inc_history_data(
 ) -> tuple[dict, int, int]:
     index_data = load_inc_index()
 
-    (
-        country_id,
-        country_name,
-        competition_id,
-    ) = get_target_competition(
+    target_competitions = get_target_competitions(
         index_data
     )
 
-    if progress_callback is not None:
-        progress_callback(
-            1,
-            1,
-            TARGET_COUNTRY_ID,
-            (
-                f"{country_name} - "
-                f"season "
-                f"{TARGET_SEASON}"
-            ),
+    output = {
+        "last_updated_season": TARGET_SEASON,
+        "countries": {},
+    }
+
+    total = len(target_competitions)
+
+    for index, (
+        country_id,
+        country_name,
+        competition_id,
+    ) in enumerate(
+        target_competitions,
+        start=1,
+    ):
+        if progress_callback is not None:
+            progress_callback(
+                index,
+                total,
+                int(country_id),
+                country_name,
+            )
+
+        start_time = time.perf_counter()
+
+        competition_html = (
+            fetch_competition_details_html(
+                session,
+                competition_id,
+            )
         )
 
-    competition_html = (
-        fetch_competition_details_html(
-            session,
-            competition_id,
+        validate_official_individual_competition(
+            competition_html
         )
-    )
 
-    validate_official_individual_competition(
-        competition_html
-    )
-
-    club_stats = (
-        collect_competition_club_stats(
+        club_stats = collect_competition_club_stats(
             session,
             competition_html,
         )
-    )
 
-    output = {
-        "last_updated_season": (
-            TARGET_SEASON
-        ),
-        "countries": {
-            country_id: {
-                "name": country_name,
-                "competitions": {
-                    str(
-                        TARGET_SEASON
-                    ): {
-                        "competition_id": (
-                            competition_id
-                        ),
-                        "clubs": club_stats,
-                    }
-                },
-            }
-        },
-    }
+        elapsed = time.perf_counter() - start_time
+
+        print(
+            f"{country_name} season {TARGET_SEASON}: "
+            f"{elapsed:.2f}s"
+        )
+
+        output["countries"][country_id] = {
+            "name": country_name,
+            "competitions": {
+                str(TARGET_SEASON): {
+                    "competition_id": competition_id,
+                    "clubs": club_stats,
+                }
+            },
+        }
 
     return (
         output,
-        1,
-        1,
+        total,
+        total,
     )
 
 
@@ -181,9 +181,7 @@ def get_inc_competitions_json(
         competition_count,
     ) = build_inc_history_data(
         session,
-        progress_callback=(
-            progress_callback
-        ),
+        progress_callback=progress_callback,
     )
 
     json_data = json.dumps(
