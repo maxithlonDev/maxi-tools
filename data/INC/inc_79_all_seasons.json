@@ -1,0 +1,7354 @@
+{
+  "last_updated_season": 107,
+  "countries": {
+    "79": {
+      "name": "Malta",
+      "competitions": {
+        "107": {
+          "competition_id": 1163809,
+          "clubs": [
+            {
+              "club_id": 98437,
+              "name": "Marsa Sports Club",
+              "gold": 41,
+              "silver": 35,
+              "bronze": 13
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 3,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91527,
+              "name": "Tempe Track Club",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 92055,
+              "name": "Ogro",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 87886,
+              "name": "The Originals",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 51530,
+              "name": "Les Galopeurs",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 105399,
+              "name": "Raħal Ġdid",
+              "gold": 0,
+              "silver": 6,
+              "bronze": 24
+            },
+            {
+              "club_id": 78645,
+              "name": "A.S. Ardita Gens Romana",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 83849,
+              "name": "trionfoligure",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 81987,
+              "name": "Metropolitan AC",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 66099,
+              "name": "FC Łolaboga",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87714,
+              "name": "Canyadó Atletisme",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 53389,
+              "name": "Liontaria",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 106892,
+              "name": "Malta",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 6
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": 105331,
+              "name": "Fire Tarnów",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 75865,
+              "name": "Atl. Studentesca Ca.Ri.Ri...",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 88777,
+              "name": "Dan Kolov 2018",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 10406,
+              "name": "P.B.P.",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 105005,
+              "name": "Ταχυ-δρομοι",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 105917,
+              "name": "Tepeköy SK",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "106": {
+          "competition_id": 1150788,
+          "clubs": [
+            {
+              "club_id": 98437,
+              "name": "Marsa Sports Club",
+              "gold": 39,
+              "silver": 29,
+              "bronze": 13
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 3,
+              "silver": 7,
+              "bronze": 0
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 185,
+              "name": "Calabria",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 91527,
+              "name": "Tempe Track Club",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 83849,
+              "name": "trionfoligure",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 44952,
+              "name": "Besaid Aurochs AT",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 3751,
+              "name": "Dream Academy",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 51530,
+              "name": "Les Galopeurs",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 87886,
+              "name": "The Originals",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 105399,
+              "name": "Raħal Ġdid",
+              "gold": 0,
+              "silver": 4,
+              "bronze": 28
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 75865,
+              "name": "Atl. Studentesca Ca.Ri.Ri...",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 78645,
+              "name": "A.S. Ardita Gens Romana",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 81987,
+              "name": "Metropolitan AC",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 105917,
+              "name": "Tepeköy SK",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 66099,
+              "name": "FC Łolaboga",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 53389,
+              "name": "Liontaria",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 105005,
+              "name": "Ταχυ-δρομοι",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 105355,
+              "name": "Tomelilla City",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 47307,
+              "name": "Atletico Babillo",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "105": {
+          "competition_id": 1137761,
+          "clubs": [
+            {
+              "club_id": 98437,
+              "name": "Marsa Sports Club",
+              "gold": 37,
+              "silver": 29,
+              "bronze": 21
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 4,
+              "silver": 4,
+              "bronze": 2
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91527,
+              "name": "Tempe Track Club",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 7988,
+              "name": "Run For Freedom",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 66099,
+              "name": "FC Łolaboga",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 87886,
+              "name": "The Originals",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 44952,
+              "name": "Besaid Aurochs AT",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 3751,
+              "name": "Dream Academy",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 53389,
+              "name": "Liontaria",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 185,
+              "name": "Calabria",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 105399,
+              "name": "Raħal Ġdid",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 22
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 75865,
+              "name": "Atl. Studentesca Ca.Ri.Ri...",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 105355,
+              "name": "Tomelilla City",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 51530,
+              "name": "Les Galopeurs",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 84679,
+              "name": "LC_Pokémon",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 81987,
+              "name": "Metropolitan AC",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 105005,
+              "name": "Ταχυ-δρομοι",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 91519,
+              "name": "Odessa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Team Start Singapore",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 83849,
+              "name": "trionfoligure",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Gozo Athletix Club",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 90139,
+              "name": "Scussaseatletica",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 92055,
+              "name": "Ogro",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 10406,
+              "name": "P.B.P.",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 95965,
+              "name": "Stormbringer",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "104": {
+          "competition_id": 1125227,
+          "clubs": [
+            {
+              "club_id": 98437,
+              "name": "Marsa Sports Club",
+              "gold": 34,
+              "silver": 29,
+              "bronze": 17
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 4,
+              "silver": 5,
+              "bronze": 1
+            },
+            {
+              "club_id": 91527,
+              "name": "Tempe Track Club",
+              "gold": 2,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 19704,
+              "name": "Blue Ridge RC",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 105399,
+              "name": "Raħal Ġdid",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 5
+            },
+            {
+              "club_id": 87886,
+              "name": "The Originals",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 92084,
+              "name": "June Poe TC",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 51530,
+              "name": "Les Galopeurs",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 7988,
+              "name": "Run For Freedom",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 84679,
+              "name": "LC_Pokémon",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 185,
+              "name": "Calabria",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 96791,
+              "name": "Polska Love",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 53389,
+              "name": "Liontaria",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 90139,
+              "name": "Scussaseatletica",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 92055,
+              "name": "Ogro",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 66099,
+              "name": "FC Łolaboga",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 81987,
+              "name": "Metropolitan AC",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 10406,
+              "name": "P.B.P.",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 3751,
+              "name": "Dream Academy",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 44952,
+              "name": "Besaid Aurochs AT",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 83849,
+              "name": "trionfoligure",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Malta Gladiators",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 5
+            },
+            {
+              "club_id": 92914,
+              "name": "Wacky Racers",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": 5069,
+              "name": "cuchifrito´s brown",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 95965,
+              "name": "Stormbringer",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 105005,
+              "name": "Ταχυ-δρομοι",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 84484,
+              "name": "Intec Zoiti",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 91519,
+              "name": "Odessa",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "103": {
+          "competition_id": 1112641,
+          "clubs": [
+            {
+              "club_id": 98437,
+              "name": "Marsa Sports Club",
+              "gold": 30,
+              "silver": 30,
+              "bronze": 24
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 4,
+              "silver": 4,
+              "bronze": 0
+            },
+            {
+              "club_id": 91527,
+              "name": "Tempe Track Club",
+              "gold": 2,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 7988,
+              "name": "Run For Freedom",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92914,
+              "name": "Wacky Racers",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 53389,
+              "name": "Liontaria",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 2
+            },
+            {
+              "club_id": 5069,
+              "name": "cuchifrito´s brown",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87886,
+              "name": "The Originals",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 84679,
+              "name": "LC_Pokémon",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 3751,
+              "name": "Dream Academy",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92084,
+              "name": "June Poe TC",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 44952,
+              "name": "Besaid Aurochs AT",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 84484,
+              "name": "Intec Zoiti",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 185,
+              "name": "Calabria",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 19704,
+              "name": "Blue Ridge RC",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 93923,
+              "name": "AV Chaos",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 105399,
+              "name": "Raħal Ġdid",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 2
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 51530,
+              "name": "Les Galopeurs",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 94143,
+              "name": "CA Mieres Del Camín",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 23437,
+              "name": "Coureurs de Bois",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 53416,
+              "name": "TSV Helmstedt von 1849",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93196,
+              "name": "Wavt",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 105297,
+              "name": "Casix",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 8
+            },
+            {
+              "club_id": null,
+              "name": "Superkenny Team",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 92055,
+              "name": "Ogro",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Snoqualmie Run Club",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 31212,
+              "name": "Qubass Squad",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 95965,
+              "name": "Stormbringer",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 10406,
+              "name": "P.B.P.",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 89731,
+              "name": "Adrirral Athletics Club",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 91519,
+              "name": "Odessa",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Malta Athletics Club",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "102": {
+          "competition_id": 1100016,
+          "clubs": [
+            {
+              "club_id": 98437,
+              "name": "Marsa Sports Club",
+              "gold": 25,
+              "silver": 27,
+              "bronze": 22
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 6,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 59703,
+              "name": "GatPact",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 14980,
+              "name": "De TufTufClub",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 53389,
+              "name": "Liontaria",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92055,
+              "name": "Ogro",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 100938,
+              "name": "Molfetta Warriors",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 7988,
+              "name": "Run For Freedom",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92914,
+              "name": "Wacky Racers",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 44952,
+              "name": "Besaid Aurochs AT",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 61475,
+              "name": "aldeia b",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 23437,
+              "name": "Coureurs de Bois",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 87886,
+              "name": "The Originals",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 2
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 47307,
+              "name": "Atletico Babillo",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 91527,
+              "name": "Tempe Track Club",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 105297,
+              "name": "Casix",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 7
+            },
+            {
+              "club_id": 93196,
+              "name": "Wavt",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93684,
+              "name": "TUS Gold",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 19704,
+              "name": "Blue Ridge RC",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 5069,
+              "name": "cuchifrito´s brown",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Superkenny Team",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93923,
+              "name": "AV Chaos",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 84484,
+              "name": "Intec Zoiti",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 84679,
+              "name": "LC_Pokémon",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 96791,
+              "name": "Polska Love",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 53416,
+              "name": "TSV Helmstedt von 1849",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Rohracker Kings",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 51530,
+              "name": "Les Galopeurs",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 105005,
+              "name": "Ταχυ-δρομοι",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 3751,
+              "name": "Dream Academy",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 95965,
+              "name": "Stormbringer",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "101": {
+          "competition_id": 1087411,
+          "clubs": [
+            {
+              "club_id": 98437,
+              "name": "Marsa Sports Club",
+              "gold": 21,
+              "silver": 24,
+              "bronze": 28
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 4,
+              "silver": 4,
+              "bronze": 4
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 14980,
+              "name": "De TufTufClub",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 59703,
+              "name": "GatPact",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 5069,
+              "name": "cuchifrito´s brown",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 54144,
+              "name": "kolimvites",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 91527,
+              "name": "Tempe Track Club",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 185,
+              "name": "Calabria",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 53389,
+              "name": "Liontaria",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 103563,
+              "name": "WKS Konfederacja Krakow",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 100938,
+              "name": "Molfetta Warriors",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92527,
+              "name": "Mile High Racers",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 44952,
+              "name": "Besaid Aurochs AT",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 7988,
+              "name": "Run For Freedom",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 61475,
+              "name": "aldeia b",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92055,
+              "name": "Ogro",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 84679,
+              "name": "LC_Pokémon",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 92914,
+              "name": "Wacky Racers",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 19704,
+              "name": "Blue Ridge RC",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Rohracker Kings",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 51530,
+              "name": "Les Galopeurs",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87714,
+              "name": "Canyadó Atletisme",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 31212,
+              "name": "Qubass Squad",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93196,
+              "name": "Wavt",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 84484,
+              "name": "Intec Zoiti",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93684,
+              "name": "TUS Gold",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 94143,
+              "name": "CA Mieres Del Camín",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 92084,
+              "name": "June Poe TC",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 96791,
+              "name": "Polska Love",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87886,
+              "name": "The Originals",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "100": {
+          "competition_id": 1074762,
+          "clubs": [
+            {
+              "club_id": 98437,
+              "name": "Marsa Sports Club",
+              "gold": 13,
+              "silver": 24,
+              "bronze": 27
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 7,
+              "silver": 3,
+              "bronze": 0
+            },
+            {
+              "club_id": 96791,
+              "name": "Polska Love",
+              "gold": 2,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 185,
+              "name": "Calabria",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 59703,
+              "name": "GatPact",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 53389,
+              "name": "Liontaria",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92914,
+              "name": "Wacky Racers",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 14980,
+              "name": "De TufTufClub",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 54144,
+              "name": "kolimvites",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 22781,
+              "name": "Wizkids",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 87886,
+              "name": "The Originals",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 44952,
+              "name": "Besaid Aurochs AT",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "MegaChampions",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91527,
+              "name": "Tempe Track Club",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 23437,
+              "name": "Coureurs de Bois",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Golem91",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 7988,
+              "name": "Run For Freedom",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 51530,
+              "name": "Les Galopeurs",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 3676,
+              "name": "Hippies",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 94143,
+              "name": "CA Mieres Del Camín",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 19704,
+              "name": "Blue Ridge RC",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 100938,
+              "name": "Molfetta Warriors",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 84679,
+              "name": "LC_Pokémon",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 88522,
+              "name": "Gernika Horobetz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 2815,
+              "name": "Munich Running Club",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 92527,
+              "name": "Mile High Racers",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 84484,
+              "name": "Intec Zoiti",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 65293,
+              "name": "S.A. Vicenza",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Casi AC",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 3
+            },
+            {
+              "club_id": 18628,
+              "name": "Diavoli Rossi",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 91519,
+              "name": "Odessa",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 3751,
+              "name": "Dream Academy",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 93196,
+              "name": "Wavt",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 53416,
+              "name": "TSV Helmstedt von 1849",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "99": {
+          "competition_id": 1062072,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 9,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 98437,
+              "name": "Marsa Sports Club",
+              "gold": 7,
+              "silver": 21,
+              "bronze": 29
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 2,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 14980,
+              "name": "De TufTufClub",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 18628,
+              "name": "Diavoli Rossi",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 27064,
+              "name": "West Lakes TC",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 4945,
+              "name": "Ass. Atl. Reggio C.",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 59703,
+              "name": "GatPact",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92914,
+              "name": "Wacky Racers",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 96791,
+              "name": "Polska Love",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 54144,
+              "name": "kolimvites",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 91527,
+              "name": "Tempe Track Club",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 185,
+              "name": "Calabria",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 94143,
+              "name": "CA Mieres Del Camín",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 23437,
+              "name": "Coureurs de Bois",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 100938,
+              "name": "Molfetta Warriors",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 7988,
+              "name": "Run For Freedom",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91519,
+              "name": "Odessa",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 84484,
+              "name": "Intec Zoiti",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 44952,
+              "name": "Besaid Aurochs AT",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Casi AC",
+              "gold": 0,
+              "silver": 5,
+              "bronze": 2
+            },
+            {
+              "club_id": 19704,
+              "name": "Blue Ridge RC",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 92527,
+              "name": "Mile High Racers",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 90563,
+              "name": "AC Norteños",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 51530,
+              "name": "Les Galopeurs",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Golem91",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 3751,
+              "name": "Dream Academy",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Superkenny Team",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 86330,
+              "name": "Vallekas Team",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 85242,
+              "name": "Marben",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 10406,
+              "name": "P.B.P.",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 84679,
+              "name": "LC_Pokémon",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Biohazard",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 93196,
+              "name": "Wavt",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 87714,
+              "name": "Canyadó Atletisme",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 65293,
+              "name": "S.A. Vicenza",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 2815,
+              "name": "Munich Running Club",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 92055,
+              "name": "Ogro",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 53389,
+              "name": "Liontaria",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 12408,
+              "name": "Runners 4life",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Bielany Orthalions",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "98": {
+          "competition_id": 1049408,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 6,
+              "silver": 5,
+              "bronze": 0
+            },
+            {
+              "club_id": 98437,
+              "name": "Marsa Sports Club",
+              "gold": 4,
+              "silver": 16,
+              "bronze": 18
+            },
+            {
+              "club_id": null,
+              "name": "Casi AC",
+              "gold": 3,
+              "silver": 5,
+              "bronze": 14
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 3,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 2,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 94143,
+              "name": "CA Mieres Del Camín",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92914,
+              "name": "Wacky Racers",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 1259,
+              "name": "Cus Torino",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 27064,
+              "name": "West Lakes TC",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 59703,
+              "name": "GatPact",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 14980,
+              "name": "De TufTufClub",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 54144,
+              "name": "kolimvites",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 1,
+              "silver": 4,
+              "bronze": 0
+            },
+            {
+              "club_id": 185,
+              "name": "Calabria",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 81072,
+              "name": "Achilles-Top2",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 18628,
+              "name": "Diavoli Rossi",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 31212,
+              "name": "Qubass Squad",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Golem91",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 10406,
+              "name": "P.B.P.",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 44952,
+              "name": "Besaid Aurochs AT",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 84679,
+              "name": "LC_Pokémon",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 70415,
+              "name": "Mediummen",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 5069,
+              "name": "cuchifrito´s brown",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 7988,
+              "name": "Run For Freedom",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 96791,
+              "name": "Polska Love",
+              "gold": 0,
+              "silver": 5,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 4945,
+              "name": "Ass. Atl. Reggio C.",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 91519,
+              "name": "Odessa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 72804,
+              "name": "Baetulo Athletarum",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Bielany Orthalions",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 92527,
+              "name": "Mile High Racers",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90563,
+              "name": "AC Norteños",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93196,
+              "name": "Wavt",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 88522,
+              "name": "Gernika Horobetz",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 93893,
+              "name": "Quedas Atlético",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 3751,
+              "name": "Dream Academy",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 53416,
+              "name": "TSV Helmstedt von 1849",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 84484,
+              "name": "Intec Zoiti",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Superkenny Team",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "97": {
+          "competition_id": 1036693,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 4,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 3,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 2,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 2,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 94143,
+              "name": "CA Mieres Del Camín",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 81072,
+              "name": "Achilles-Top2",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 1259,
+              "name": "Cus Torino",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 14980,
+              "name": "De TufTufClub",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 95511,
+              "name": "Sprinterteam",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 96791,
+              "name": "Polska Love",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "UltraRun",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 185,
+              "name": "Calabria",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90563,
+              "name": "AC Norteños",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 38712,
+              "name": "Bourg D'Oisans runners",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 4945,
+              "name": "Ass. Atl. Reggio C.",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 1700,
+              "name": "chiavarese",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 59703,
+              "name": "GatPact",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 44952,
+              "name": "Besaid Aurochs AT",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 7988,
+              "name": "Run For Freedom",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 70415,
+              "name": "Mediummen",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92914,
+              "name": "Wacky Racers",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 23437,
+              "name": "Coureurs de Bois",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 18628,
+              "name": "Diavoli Rossi",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 2585,
+              "name": "Taz Ciclone Atletica",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 87714,
+              "name": "Canyadó Atletisme",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 93196,
+              "name": "Wavt",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 91527,
+              "name": "Tempe Track Club",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 84679,
+              "name": "LC_Pokémon",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Rohracker Kings",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 93997,
+              "name": "Desportivo Evolução",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 19704,
+              "name": "Blue Ridge RC",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Golem91",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 86884,
+              "name": "Pottlandteam",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 5069,
+              "name": "cuchifrito´s brown",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 72804,
+              "name": "Baetulo Athletarum",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 89196,
+              "name": "Líšeňský AK 2019",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93893,
+              "name": "Quedas Atlético",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 84484,
+              "name": "Intec Zoiti",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 51530,
+              "name": "Les Galopeurs",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 3751,
+              "name": "Dream Academy",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 92711,
+              "name": "Atletica Lussi",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 92055,
+              "name": "Ogro",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 54144,
+              "name": "kolimvites",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 65293,
+              "name": "S.A. Vicenza",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "96": {
+          "competition_id": 1024118,
+          "clubs": [
+            {
+              "club_id": null,
+              "name": "Hamrun Spartans",
+              "gold": 7,
+              "silver": 14,
+              "bronze": 26
+            },
+            {
+              "club_id": 2815,
+              "name": "Munich Running Club",
+              "gold": 5,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 4,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 85502,
+              "name": "Los Pitufos",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92914,
+              "name": "Wacky Racers",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 26245,
+              "name": "Elan Demars",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 1,
+              "silver": 4,
+              "bronze": 0
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Pirates of Cyprus",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 14980,
+              "name": "De TufTufClub",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "UltraRun",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 185,
+              "name": "Calabria",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93997,
+              "name": "Desportivo Evolução",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90117,
+              "name": "A.O. Poros",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 87714,
+              "name": "Canyadó Atletisme",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 51530,
+              "name": "Les Galopeurs",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 2585,
+              "name": "Taz Ciclone Atletica",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 86884,
+              "name": "Pottlandteam",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 1700,
+              "name": "chiavarese",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 38712,
+              "name": "Bourg D'Oisans runners",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 70415,
+              "name": "Mediummen",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 88522,
+              "name": "Gernika Horobetz",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "MegaChampions",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 90563,
+              "name": "AC Norteños",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 44952,
+              "name": "Besaid Aurochs AT",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 23437,
+              "name": "Coureurs de Bois",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 72804,
+              "name": "Baetulo Athletarum",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 18628,
+              "name": "Diavoli Rossi",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 3,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 95511,
+              "name": "Sprinterteam",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 96791,
+              "name": "Polska Love",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 53416,
+              "name": "TSV Helmstedt von 1849",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 12588,
+              "name": "LZS Ciepielowice",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93196,
+              "name": "Wavt",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93386,
+              "name": "Green and Gold",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 42969,
+              "name": "Atletica Rogenese",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 23669,
+              "name": "CA París",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 53222,
+              "name": "baboom",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 92711,
+              "name": "Atletica Lussi",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 91527,
+              "name": "Tempe Track Club",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "95": {
+          "competition_id": 1011454,
+          "clubs": [
+            {
+              "club_id": null,
+              "name": "Hamrun Spartans",
+              "gold": 12,
+              "silver": 23,
+              "bronze": 28
+            },
+            {
+              "club_id": 2815,
+              "name": "Munich Running Club",
+              "gold": 6,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 5,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 3,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 12588,
+              "name": "LZS Ciepielowice",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 85502,
+              "name": "Los Pitufos",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 14980,
+              "name": "De TufTufClub",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 26245,
+              "name": "Elan Demars",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 1,
+              "silver": 3,
+              "bronze": 0
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 1,
+              "silver": 3,
+              "bronze": 0
+            },
+            {
+              "club_id": 185,
+              "name": "Calabria",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Pirates of Cyprus",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 92914,
+              "name": "Wacky Racers",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "UltraRun",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 72040,
+              "name": "White Star",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 23669,
+              "name": "CA París",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 89196,
+              "name": "Líšeňský AK 2019",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 87714,
+              "name": "Canyadó Atletisme",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 1700,
+              "name": "chiavarese",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 18628,
+              "name": "Diavoli Rossi",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 2585,
+              "name": "Taz Ciclone Atletica",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 44952,
+              "name": "Besaid Aurochs AT",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "MegaChampions",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 38712,
+              "name": "Bourg D'Oisans runners",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 70415,
+              "name": "Mediummen",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Forti&Liberi",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93196,
+              "name": "Wavt",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93386,
+              "name": "Green and Gold",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 42969,
+              "name": "Atletica Rogenese",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90563,
+              "name": "AC Norteños",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 91527,
+              "name": "Tempe Track Club",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 72804,
+              "name": "Baetulo Athletarum",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 92711,
+              "name": "Atletica Lussi",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 86884,
+              "name": "Pottlandteam",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Gazi Athletics",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "94": {
+          "competition_id": 998762,
+          "clubs": [
+            {
+              "club_id": null,
+              "name": "Bugibba Sporting Accademy",
+              "gold": 13,
+              "silver": 14,
+              "bronze": 22
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 6,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 2815,
+              "name": "Munich Running Club",
+              "gold": 5,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 2,
+              "silver": 3,
+              "bronze": 1
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 2,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 14980,
+              "name": "De TufTufClub",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "UltraRun",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91611,
+              "name": "Run-DMC",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 90563,
+              "name": "AC Norteños",
+              "gold": 1,
+              "silver": 3,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 85502,
+              "name": "Los Pitufos",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Pirates of Cyprus",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 92914,
+              "name": "Wacky Racers",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 2585,
+              "name": "Taz Ciclone Atletica",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 185,
+              "name": "Calabria",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 12588,
+              "name": "LZS Ciepielowice",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 26245,
+              "name": "Elan Demars",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 86884,
+              "name": "Pottlandteam",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Forti&Liberi",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 87299,
+              "name": "KS Miszcze",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 23669,
+              "name": "CA París",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 87714,
+              "name": "Canyadó Atletisme",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 89196,
+              "name": "Líšeňský AK 2019",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 45344,
+              "name": "olympiakos rebels",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 0,
+              "silver": 4,
+              "bronze": 0
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 38712,
+              "name": "Bourg D'Oisans runners",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 93386,
+              "name": "Green and Gold",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 18628,
+              "name": "Diavoli Rossi",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 72040,
+              "name": "White Star",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 44952,
+              "name": "Besaid Aurochs AT",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 5069,
+              "name": "cuchifrito´s brown",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": 7882,
+              "name": "Virtus Garibellini Siena",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": 1700,
+              "name": "chiavarese",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 60958,
+              "name": "Canadian Juniors",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 88950,
+              "name": "Churchfield Chics",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "MegaChampions",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Gazi Athletics",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 92711,
+              "name": "Atletica Lussi",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 93196,
+              "name": "Wavt",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 86330,
+              "name": "Vallekas Team",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 70415,
+              "name": "Mediummen",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "93": {
+          "competition_id": 986111,
+          "clubs": [
+            {
+              "club_id": null,
+              "name": "Bugibba Sporting Accademy",
+              "gold": 14,
+              "silver": 15,
+              "bronze": 20
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 7,
+              "silver": 1,
+              "bronze": 2
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 6,
+              "silver": 3,
+              "bronze": 0
+            },
+            {
+              "club_id": 2815,
+              "name": "Munich Running Club",
+              "gold": 4,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 3,
+              "silver": 1,
+              "bronze": 2
+            },
+            {
+              "club_id": 91754,
+              "name": "BCN’92",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 38712,
+              "name": "Bourg D'Oisans runners",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 1,
+              "silver": 3,
+              "bronze": 0
+            },
+            {
+              "club_id": 26245,
+              "name": "Elan Demars",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 85502,
+              "name": "Los Pitufos",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Pirates of Cyprus",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 23669,
+              "name": "CA París",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 93386,
+              "name": "Green and Gold",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 89196,
+              "name": "Líšeňský AK 2019",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 41502,
+              "name": "BMW Jelenia Gora",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Forti&Liberi",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 3,
+              "bronze": 1
+            },
+            {
+              "club_id": 90563,
+              "name": "AC Norteños",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 2
+            },
+            {
+              "club_id": 92914,
+              "name": "Wacky Racers",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 185,
+              "name": "Calabria",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 87714,
+              "name": "Canyadó Atletisme",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 86330,
+              "name": "Vallekas Team",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 42969,
+              "name": "Atletica Rogenese",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87299,
+              "name": "KS Miszcze",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 12588,
+              "name": "LZS Ciepielowice",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93196,
+              "name": "Wavt",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 1700,
+              "name": "chiavarese",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 86884,
+              "name": "Pottlandteam",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93800,
+              "name": "JáToNeumím",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 91649,
+              "name": "Mafate",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": null,
+              "name": "MegaChampions",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 84157,
+              "name": "C.A.Port-Saplaya",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 72804,
+              "name": "Baetulo Athletarum",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 72040,
+              "name": "White Star",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "92": {
+          "competition_id": 973396,
+          "clubs": [
+            {
+              "club_id": null,
+              "name": "Bugibba Sporting Accademy",
+              "gold": 10,
+              "silver": 21,
+              "bronze": 17
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 8,
+              "silver": 5,
+              "bronze": 0
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 7,
+              "silver": 5,
+              "bronze": 0
+            },
+            {
+              "club_id": 2815,
+              "name": "Munich Running Club",
+              "gold": 3,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 2,
+              "silver": 3,
+              "bronze": 1
+            },
+            {
+              "club_id": 26245,
+              "name": "Elan Demars",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 85502,
+              "name": "Los Pitufos",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91754,
+              "name": "BCN’92",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 4075,
+              "name": "kampioenen",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 89196,
+              "name": "Líšeňský AK 2019",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Pirates of Cyprus",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 12588,
+              "name": "LZS Ciepielowice",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 88777,
+              "name": "Dan Kolov 2018",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Forti&Liberi",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Soulfly",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 3
+            },
+            {
+              "club_id": 90563,
+              "name": "AC Norteños",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 1700,
+              "name": "chiavarese",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "MegaChampions",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 83849,
+              "name": "trionfoligure",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 87714,
+              "name": "Canyadó Atletisme",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Sparta Szczecin",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 86330,
+              "name": "Vallekas Team",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 87299,
+              "name": "KS Miszcze",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 23669,
+              "name": "CA París",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 93386,
+              "name": "Green and Gold",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Lomacon AC",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "91": {
+          "competition_id": 960745,
+          "clubs": [
+            {
+              "club_id": null,
+              "name": "Bugibba Sporting Accademy",
+              "gold": 13,
+              "silver": 11,
+              "bronze": 25
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 12,
+              "silver": 4,
+              "bronze": 1
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 8,
+              "silver": 3,
+              "bronze": 1
+            },
+            {
+              "club_id": 85502,
+              "name": "Los Pitufos",
+              "gold": 2,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91754,
+              "name": "BCN’92",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 26245,
+              "name": "Elan Demars",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 1,
+              "silver": 4,
+              "bronze": 1
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 1,
+              "silver": 3,
+              "bronze": 0
+            },
+            {
+              "club_id": 92084,
+              "name": "June Poe TC",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 4075,
+              "name": "kampioenen",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Forti&Liberi",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 86309,
+              "name": "BC Berg",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Sparta Szczecin",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 89196,
+              "name": "Líšeňský AK 2019",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 88777,
+              "name": "Dan Kolov 2018",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 1700,
+              "name": "chiavarese",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 18628,
+              "name": "Diavoli Rossi",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87299,
+              "name": "KS Miszcze",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 2815,
+              "name": "Munich Running Club",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90117,
+              "name": "A.O. Poros",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 23669,
+              "name": "CA París",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 93386,
+              "name": "Green and Gold",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Oostkerke Athletics",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 10406,
+              "name": "P.B.P.",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 87714,
+              "name": "Canyadó Atletisme",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "90": {
+          "competition_id": 948018,
+          "clubs": [
+            {
+              "club_id": null,
+              "name": "Bugibba Sporting Accademy",
+              "gold": 13,
+              "silver": 19,
+              "bronze": 22
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 13,
+              "silver": 1,
+              "bronze": 3
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 11,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 92084,
+              "name": "June Poe TC",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Gigolo's",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91754,
+              "name": "BCN’92",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 1,
+              "silver": 3,
+              "bronze": 0
+            },
+            {
+              "club_id": 85502,
+              "name": "Los Pitufos",
+              "gold": 1,
+              "silver": 3,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Hurameshi Team",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Forti&Liberi",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 4075,
+              "name": "kampioenen",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 12408,
+              "name": "Runners 4life",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 87299,
+              "name": "KS Miszcze",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 84157,
+              "name": "C.A.Port-Saplaya",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 88777,
+              "name": "Dan Kolov 2018",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 89132,
+              "name": "Los Prudencios",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 18628,
+              "name": "Diavoli Rossi",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": 90854,
+              "name": "Highfield",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 93386,
+              "name": "Green and Gold",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 82169,
+              "name": "Atletismo Prestige",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 10406,
+              "name": "P.B.P.",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 90320,
+              "name": "RdU 1949 AC",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "89": {
+          "competition_id": 935224,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 14,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 13,
+              "silver": 4,
+              "bronze": 2
+            },
+            {
+              "club_id": null,
+              "name": "Bugibba Sporting Accademy",
+              "gold": 7,
+              "silver": 20,
+              "bronze": 24
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 3,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 2,
+              "silver": 2,
+              "bronze": 2
+            },
+            {
+              "club_id": null,
+              "name": "LAC Nordlord",
+              "gold": 2,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 92084,
+              "name": "June Poe TC",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 85502,
+              "name": "Los Pitufos",
+              "gold": 1,
+              "silver": 3,
+              "bronze": 0
+            },
+            {
+              "club_id": 92500,
+              "name": "Haize Gorria",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Gigolo's",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Forti&Liberi",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 4075,
+              "name": "kampioenen",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 12408,
+              "name": "Runners 4life",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 88777,
+              "name": "Dan Kolov 2018",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Academia Athens",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87299,
+              "name": "KS Miszcze",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "AK Kamnica",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 84157,
+              "name": "C.A.Port-Saplaya",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": 89132,
+              "name": "Los Prudencios",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 89196,
+              "name": "Líšeňský AK 2019",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 90854,
+              "name": "Highfield",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "88": {
+          "competition_id": 922402,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 14,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Bugibba Sporting Accademy",
+              "gold": 12,
+              "silver": 17,
+              "bronze": 27
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 11,
+              "silver": 9,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Gigolo's",
+              "gold": 2,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 92084,
+              "name": "June Poe TC",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Ankh-Morpork Shades",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 7714,
+              "name": "Indomables",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 12588,
+              "name": "LZS Ciepielowice",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "LAC Nordlord",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Academia Athens",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 4075,
+              "name": "kampioenen",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Forti&Liberi",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 0,
+              "silver": 3,
+              "bronze": 1
+            },
+            {
+              "club_id": 85502,
+              "name": "Los Pitufos",
+              "gold": 0,
+              "silver": 3,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Ruben Team",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 12408,
+              "name": "Runners 4life",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Atletica Vicentina [AV]",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 55383,
+              "name": "SG Endschuetz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 83953,
+              "name": "Warriors",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 89985,
+              "name": "STV Silberklinge",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "87": {
+          "competition_id": 909527,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 17,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 10,
+              "silver": 9,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Bugibba Sporting Accademy",
+              "gold": 6,
+              "silver": 13,
+              "bronze": 30
+            },
+            {
+              "club_id": null,
+              "name": "Audace Roma",
+              "gold": 2,
+              "silver": 4,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Gigolo's",
+              "gold": 2,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 92084,
+              "name": "June Poe TC",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "LAC Nordlord",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 85502,
+              "name": "Los Pitufos",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 27064,
+              "name": "West Lakes TC",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 7714,
+              "name": "Indomables",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Ruben Team",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 4075,
+              "name": "kampioenen",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Forti&Liberi",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Ankh-Morpork Shades",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 2
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 83953,
+              "name": "Warriors",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Juanka Team",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 89196,
+              "name": "Líšeňský AK 2019",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Sparta Szczecin",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Virtus Acta Roma",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 12408,
+              "name": "Runners 4life",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "86": {
+          "competition_id": 896638,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 17,
+              "silver": 5,
+              "bronze": 0
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 13,
+              "silver": 6,
+              "bronze": 3
+            },
+            {
+              "club_id": 12408,
+              "name": "Runners 4life",
+              "gold": 3,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Pembroke Athleta",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Ruben Team",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 27064,
+              "name": "West Lakes TC",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Audace Roma",
+              "gold": 1,
+              "silver": 4,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Forti&Liberi",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Atletica Vicentina [AV]",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 62735,
+              "name": "Gunners",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 7714,
+              "name": "Indomables",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 85502,
+              "name": "Los Pitufos",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 86309,
+              "name": "BC Berg",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 83953,
+              "name": "Warriors",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Sparta Szczecin",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 1700,
+              "name": "chiavarese",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 77207,
+              "name": "Kenya Runners",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": 91606,
+              "name": "AC Geraardsbergen",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 88534,
+              "name": "Asv",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "85": {
+          "competition_id": 883754,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 16,
+              "silver": 4,
+              "bronze": 2
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 14,
+              "silver": 13,
+              "bronze": 3
+            },
+            {
+              "club_id": 12408,
+              "name": "Runners 4life",
+              "gold": 3,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Audace Roma",
+              "gold": 2,
+              "silver": 3,
+              "bronze": 1
+            },
+            {
+              "club_id": 91611,
+              "name": "Run-DMC",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 27064,
+              "name": "West Lakes TC",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91754,
+              "name": "BCN’92",
+              "gold": 1,
+              "silver": 3,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Ankh-Morpork Shades",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 2
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Forti&Liberi",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91606,
+              "name": "AC Geraardsbergen",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Pembroke Athleta",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 86309,
+              "name": "BC Berg",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 83953,
+              "name": "Warriors",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Sparta Szczecin",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "TheBeściaki",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Ruben Team",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 62735,
+              "name": "Gunners",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 7714,
+              "name": "Indomables",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "84": {
+          "competition_id": 870658,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 18,
+              "silver": 3,
+              "bronze": 1
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 13,
+              "silver": 8,
+              "bronze": 3
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 4,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Pembroke Athleta",
+              "gold": 3,
+              "silver": 2,
+              "bronze": 4
+            },
+            {
+              "club_id": 91754,
+              "name": "BCN’92",
+              "gold": 3,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 12408,
+              "name": "Runners 4life",
+              "gold": 3,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Audace Roma",
+              "gold": 2,
+              "silver": 7,
+              "bronze": 1
+            },
+            {
+              "club_id": 91611,
+              "name": "Run-DMC",
+              "gold": 2,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Malta Gladiators",
+              "gold": 1,
+              "silver": 5,
+              "bronze": 8
+            },
+            {
+              "club_id": null,
+              "name": "Ankh-Morpork Shades",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 0,
+              "silver": 3,
+              "bronze": 1
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 83953,
+              "name": "Warriors",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 7714,
+              "name": "Indomables",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Alstaden",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 2
+            },
+            {
+              "club_id": null,
+              "name": "Marsaxlokk Seagulls",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Ruben Team",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 91606,
+              "name": "AC Geraardsbergen",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 86309,
+              "name": "BC Berg",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            }
+          ]
+        },
+        "83": {
+          "competition_id": 857661,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 19,
+              "silver": 3,
+              "bronze": 2
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 14,
+              "silver": 12,
+              "bronze": 2
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 3,
+              "silver": 4,
+              "bronze": 0
+            },
+            {
+              "club_id": 91611,
+              "name": "Run-DMC",
+              "gold": 3,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 91754,
+              "name": "BCN’92",
+              "gold": 2,
+              "silver": 4,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Audace Roma",
+              "gold": 1,
+              "silver": 5,
+              "bronze": 3
+            },
+            {
+              "club_id": null,
+              "name": "Ruben Team",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 32114,
+              "name": "I Baccani",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Ahaldaba",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Atletica Vicentina [AV]",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 2
+            },
+            {
+              "club_id": 12408,
+              "name": "Runners 4life",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 2
+            },
+            {
+              "club_id": null,
+              "name": "Ankh-Morpork Shades",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 86309,
+              "name": "BC Berg",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 83953,
+              "name": "Warriors",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "TuS Wachendorf",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 62735,
+              "name": "Gunners",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "A.S.D. Gradoli",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "82": {
+          "competition_id": 844514,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 16,
+              "silver": 6,
+              "bronze": 2
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 15,
+              "silver": 7,
+              "bronze": 6
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 5,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 91754,
+              "name": "BCN’92",
+              "gold": 3,
+              "silver": 2,
+              "bronze": 3
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 2,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 2,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 91611,
+              "name": "Run-DMC",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Audace Roma",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Atletica Picchio",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 75193,
+              "name": "Helmets",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Ankh-Morpork Shades",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 2
+            },
+            {
+              "club_id": 41502,
+              "name": "BMW Jelenia Gora",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Ruben Team",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 83953,
+              "name": "Warriors",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 83460,
+              "name": "Pássaro Atletismo",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 10406,
+              "name": "P.B.P.",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 48414,
+              "name": "olumpionikes peristeriou",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Kalmeiros AC",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Atletica Vicentina [AV]",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "TheBeściaki",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90854,
+              "name": "Highfield",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Sonoma County Allinace",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "A.S.D. Gradoli",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 7714,
+              "name": "Indomables",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 1700,
+              "name": "chiavarese",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "81": {
+          "competition_id": 831317,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 19,
+              "silver": 3,
+              "bronze": 0
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 11,
+              "silver": 9,
+              "bronze": 0
+            },
+            {
+              "club_id": 87886,
+              "name": "The Originals",
+              "gold": 4,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 3,
+              "silver": 4,
+              "bronze": 1
+            },
+            {
+              "club_id": 91754,
+              "name": "BCN’92",
+              "gold": 3,
+              "silver": 3,
+              "bronze": 3
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Ankh-Morpork Shades",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 14452,
+              "name": "TuS Erbse",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Atletica Vicentina [AV]",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Sonoma County Allinace",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 32114,
+              "name": "I Baccani",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 83953,
+              "name": "Warriors",
+              "gold": 0,
+              "silver": 3,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 90854,
+              "name": "Highfield",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 91869,
+              "name": "luckybastards",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 91649,
+              "name": "Mafate",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Audace Roma",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 2
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Ruben Team",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 41502,
+              "name": "BMW Jelenia Gora",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": 68726,
+              "name": "Atletica Virtuosi Portici",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": null,
+              "name": "Inter Rostock",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Basiche Popolari",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": 91606,
+              "name": "AC Geraardsbergen",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "A.S.D. Gradoli",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Atletica Picchio",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "80": {
+          "competition_id": 818414,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 14,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 7,
+              "silver": 5,
+              "bronze": 1
+            },
+            {
+              "club_id": 87886,
+              "name": "The Originals",
+              "gold": 4,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 3,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 3,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 14452,
+              "name": "TuS Erbse",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Ankh-Morpork Shades",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Inter Rostock",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Atletica Vicentina [AV]",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 83953,
+              "name": "Warriors",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 68726,
+              "name": "Atletica Virtuosi Portici",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 0,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90854,
+              "name": "Highfield",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 41502,
+              "name": "BMW Jelenia Gora",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 32114,
+              "name": "I Baccani",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Sonoma County Allinace",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "A.S.D. Gradoli",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "79": {
+          "competition_id": 805526,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 14,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Gozo Athletix",
+              "gold": 6,
+              "silver": 5,
+              "bronze": 12
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 6,
+              "silver": 4,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Pembroke Athleta Sports",
+              "gold": 4,
+              "silver": 21,
+              "bronze": 11
+            },
+            {
+              "club_id": 87886,
+              "name": "The Originals",
+              "gold": 4,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Marsaxlokk Seagulls",
+              "gold": 3,
+              "silver": 6,
+              "bronze": 10
+            },
+            {
+              "club_id": null,
+              "name": "Starmax Athl. Malta",
+              "gold": 2,
+              "silver": 5,
+              "bronze": 11
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 2,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 2,
+              "silver": 2,
+              "bronze": 1
+            },
+            {
+              "club_id": 14452,
+              "name": "TuS Erbse",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 4945,
+              "name": "Ass. Atl. Reggio C.",
+              "gold": 1,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": 90854,
+              "name": "Highfield",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 57992,
+              "name": "Paso Team",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 83953,
+              "name": "Warriors",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "A.D. Riojalteña-Rioja Ala...",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Jura Stars",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Rizla+",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68726,
+              "name": "Atletica Virtuosi Portici",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 2
+            },
+            {
+              "club_id": null,
+              "name": "Sonoma County Allinace",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Torpedo Barbarossa",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            },
+            {
+              "club_id": null,
+              "name": "Inter Rostock",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "78": {
+          "competition_id": 792678,
+          "clubs": [
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 9,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 4945,
+              "name": "Ass. Atl. Reggio C.",
+              "gold": 4,
+              "silver": 2,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Ribeira Brava",
+              "gold": 3,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 14174,
+              "name": "PoLLiCe VeRDe",
+              "gold": 3,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 90712,
+              "name": "Fc Alisa",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 90982,
+              "name": "Scatoleria Val di Peppa",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "A.D. Riojalteña-Rioja Ala...",
+              "gold": 1,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 14452,
+              "name": "TuS Erbse",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 87886,
+              "name": "The Originals",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Jura Stars",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 53389,
+              "name": "Liontaria",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "Inter Rostock",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 87053,
+              "name": "Ivory Bydgoszcz",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 68841,
+              "name": "AE Badalonès",
+              "gold": 0,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "MegaChampions",
+              "gold": 0,
+              "silver": 0,
+              "bronze": 1
+            }
+          ]
+        },
+        "77": {
+          "competition_id": 779772,
+          "clubs": [
+            {
+              "club_id": null,
+              "name": "Pembroke Athleta Sports",
+              "gold": 14,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": 4945,
+              "name": "Ass. Atl. Reggio C.",
+              "gold": 3,
+              "silver": 1,
+              "bronze": 0
+            },
+            {
+              "club_id": 85748,
+              "name": "Hamburg meine Perle",
+              "gold": 2,
+              "silver": 0,
+              "bronze": 0
+            },
+            {
+              "club_id": null,
+              "name": "CopenhagenNV",
+              "gold": 1,
+              "silver": 0,
+              "bronze": 0
+            }
+          ]
+        }
+      }
+    }
+  }
+}

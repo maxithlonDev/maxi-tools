@@ -1,5 +1,8 @@
 import csv
 import io
+import threading
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import parse_qs, urlparse
 
 import requests
@@ -33,6 +36,9 @@ COMBINED_EVENT_NAMES = {
     "Decathlon",
 }
 
+EVENT_FETCH_WORKERS = 8
+_EVENT_FETCH_THREAD_LOCAL = threading.local()
+
 
 def fetch_competition_details_html(
     session: requests.Session,
@@ -56,6 +62,68 @@ def fetch_event_result_html(
     )
     resp.raise_for_status()
     return resp.text
+
+
+def get_event_fetch_session(
+    source_session: requests.Session,
+) -> requests.Session:
+    source_session_id = id(source_session)
+
+    worker_session = getattr(
+        _EVENT_FETCH_THREAD_LOCAL,
+        "session",
+        None,
+    )
+    worker_source_session_id = getattr(
+        _EVENT_FETCH_THREAD_LOCAL,
+        "source_session_id",
+        None,
+    )
+
+    if (
+        worker_session is None
+        or worker_source_session_id != source_session_id
+    ):
+        worker_session = requests.Session()
+        worker_session.headers.update(
+            source_session.headers
+        )
+        worker_session.cookies.update(
+            source_session.cookies
+        )
+        worker_session.auth = source_session.auth
+        worker_session.proxies.update(
+            source_session.proxies
+        )
+        worker_session.params.update(
+            source_session.params
+        )
+        worker_session.verify = source_session.verify
+        worker_session.cert = source_session.cert
+        worker_session.trust_env = (
+            source_session.trust_env
+        )
+
+        _EVENT_FETCH_THREAD_LOCAL.session = (
+            worker_session
+        )
+        _EVENT_FETCH_THREAD_LOCAL.source_session_id = (
+            source_session_id
+        )
+
+    return worker_session
+
+
+def fetch_event_result_html_concurrent(
+    source_session: requests.Session,
+    event_id: int,
+) -> str:
+    return fetch_event_result_html(
+        get_event_fetch_session(
+            source_session
+        ),
+        event_id,
+    )
 
 
 def extract_competition_type(html: str) -> str:
@@ -300,7 +368,6 @@ def extract_competition_events(
                 continue
 
             event_cell = tds[-1]
-
             event_link = None
 
             for link in event_cell.find_all(
@@ -483,7 +550,6 @@ def extract_place(tr) -> int | None:
         return None
 
     first_cell = tds[0]
-
     medal_image = first_cell.find("img")
 
     if medal_image is not None:
@@ -845,80 +911,9 @@ def merge_unlinked_clubs_into_linked(
         )
 
 
-def collect_competition_club_stats(
-    session: requests.Session,
-    competition_html: str,
-    progress_callback=None,
+def finalize_club_stats(
+    club_stats: dict,
 ) -> list[dict]:
-    first_place_income = (
-        get_first_place_income(
-            session,
-            competition_html,
-        )
-    )
-
-    paid_places = get_paid_places(
-        session,
-        competition_html,
-    )
-
-    events = extract_competition_events(
-        competition_html
-    )
-
-    club_stats: dict = {}
-    total_events = len(events)
-
-    for (
-        index,
-        (
-            event_id,
-            event_name,
-        ),
-    ) in enumerate(
-        events,
-        start=1,
-    ):
-        if progress_callback is not None:
-            progress_callback(
-                index,
-                total_events,
-                event_id,
-            )
-
-        try:
-            event_html = (
-                fetch_event_result_html(
-                    session,
-                    event_id,
-                )
-            )
-
-            event_results = (
-                extract_event_club_results(
-                    event_html,
-                    paid_places,
-                    first_place_income,
-                )
-            )
-        except Exception as exc:
-            raise RuntimeError(
-                f"Failed parsing event "
-                f"{index}/{total_events}: "
-                f"{event_name} "
-                f"[EVENTID={event_id}]: "
-                f"{exc}"
-            ) from exc
-
-        for result in event_results:
-            add_club_result(
-                club_stats,
-                result["club_id"],
-                result["name"],
-                result["place"],
-                result["income"],
-            )
-
     merge_unlinked_clubs_into_linked(
         club_stats
     )
@@ -945,6 +940,358 @@ def collect_competition_club_stats(
     )
 
     return result
+
+
+def collect_competitions_club_stats(
+    session: requests.Session,
+    competitions: list[dict],
+    preparation_progress_callback=None,
+    event_progress_callback=None,
+    competition_progress_callback=None,
+    summary_callback=None,
+) -> dict:
+    prepared = {}
+    total_competitions = len(competitions)
+
+    for prepared_count, competition in enumerate(
+        competitions,
+        start=1,
+    ):
+        key = competition["key"]
+        competition_html = competition[
+            "competition_html"
+        ]
+
+        setup_start = time.perf_counter()
+
+        first_place_income = (
+            get_first_place_income(
+                session,
+                competition_html,
+            )
+        )
+
+        paid_places = get_paid_places(
+            session,
+            competition_html,
+        )
+
+        events = extract_competition_events(
+            competition_html
+        )
+
+        prepared[key] = {
+            "first_place_income": first_place_income,
+            "paid_places": paid_places,
+            "events": events,
+            "setup_seconds": (
+                time.perf_counter()
+                - setup_start
+            ),
+            "event_html_by_index": {},
+            "completed_events": 0,
+            "remaining_events": len(events),
+            "error": None,
+        }
+
+        if preparation_progress_callback is not None:
+            preparation_progress_callback(
+                key,
+                prepared_count,
+                total_competitions,
+            )
+
+    if not prepared:
+        if summary_callback is not None:
+            summary_callback(
+                {
+                    "event_count": 0,
+                    "event_fetch_seconds": 0.0,
+                    "pages_per_second": 0.0,
+                }
+            )
+
+        return {}
+
+    total_event_count = sum(
+        len(state["events"])
+        for state in prepared.values()
+    )
+
+    completed_event_count = 0
+    completed_competitions = 0
+    results = {}
+
+    fetch_start = time.perf_counter()
+
+    with ThreadPoolExecutor(
+        max_workers=EVENT_FETCH_WORKERS
+    ) as executor:
+        future_to_event = {}
+
+        # Keep each competition's event requests together.
+        # The competitions themselves remain in the order
+        # supplied by the caller.
+        for competition in competitions:
+            key = competition["key"]
+            events = prepared[key]["events"]
+
+            for index, (
+                event_id,
+                event_name,
+            ) in enumerate(
+                events,
+                start=1,
+            ):
+                future = executor.submit(
+                    fetch_event_result_html_concurrent,
+                    session,
+                    event_id,
+                )
+
+                future_to_event[future] = (
+                    key,
+                    index,
+                    event_id,
+                    event_name,
+                )
+
+        for future in as_completed(
+            future_to_event
+        ):
+            (
+                key,
+                index,
+                event_id,
+                event_name,
+            ) = future_to_event[future]
+
+            state = prepared[key]
+
+            try:
+                state["event_html_by_index"][
+                    index
+                ] = future.result()
+            except Exception as exc:
+                if state["error"] is None:
+                    state["error"] = RuntimeError(
+                        f"Failed fetching event "
+                        f"{index}/{len(state['events'])}: "
+                        f"{event_name} "
+                        f"[EVENTID={event_id}]: "
+                        f"{exc}"
+                    )
+
+            state["completed_events"] += 1
+            state["remaining_events"] -= 1
+            completed_event_count += 1
+
+            if state["remaining_events"] == 0:
+                parse_start = time.perf_counter()
+                clubs = None
+
+                if state["error"] is None:
+                    club_stats = {}
+
+                    for (
+                        event_index,
+                        (
+                            parsed_event_id,
+                            parsed_event_name,
+                        ),
+                    ) in enumerate(
+                        state["events"],
+                        start=1,
+                    ):
+                        try:
+                            event_results = (
+                                extract_event_club_results(
+                                    state[
+                                        "event_html_by_index"
+                                    ][event_index],
+                                    state[
+                                        "paid_places"
+                                    ],
+                                    state[
+                                        "first_place_income"
+                                    ],
+                                )
+                            )
+                        except Exception as exc:
+                            state["error"] = RuntimeError(
+                                f"Failed parsing event "
+                                f"{event_index}/"
+                                f"{len(state['events'])}: "
+                                f"{parsed_event_name} "
+                                f"[EVENTID="
+                                f"{parsed_event_id}]: "
+                                f"{exc}"
+                            )
+                            break
+
+                        for result in event_results:
+                            add_club_result(
+                                club_stats,
+                                result["club_id"],
+                                result["name"],
+                                result["place"],
+                                result["income"],
+                            )
+
+                    if state["error"] is None:
+                        clubs = finalize_club_stats(
+                            club_stats
+                        )
+
+                parse_seconds = (
+                    time.perf_counter()
+                    - parse_start
+                )
+
+                results[key] = {
+                    "clubs": clubs,
+                    "error": state["error"],
+                    "timing": {
+                        "setup_seconds": state[
+                            "setup_seconds"
+                        ],
+                        "parse_seconds": parse_seconds,
+                    },
+                }
+
+                completed_competitions += 1
+
+                if (
+                    competition_progress_callback
+                    is not None
+                ):
+                    competition_progress_callback(
+                        key,
+                        completed_competitions,
+                        total_competitions,
+                    )
+
+            fetch_elapsed_seconds = (
+                time.perf_counter()
+                - fetch_start
+            )
+
+            pages_per_second = (
+                completed_event_count
+                / fetch_elapsed_seconds
+                if fetch_elapsed_seconds > 0
+                else 0.0
+            )
+
+            if event_progress_callback is not None:
+                event_progress_callback(
+                    key,
+                    event_id,
+                    completed_event_count,
+                    total_event_count,
+                    completed_competitions,
+                    total_competitions,
+                    fetch_elapsed_seconds,
+                    pages_per_second,
+                )
+
+    event_fetch_seconds = (
+        time.perf_counter()
+        - fetch_start
+    )
+
+    pages_per_second = (
+        total_event_count
+        / event_fetch_seconds
+        if event_fetch_seconds > 0
+        else 0.0
+    )
+
+    if summary_callback is not None:
+        summary_callback(
+            {
+                "event_count": total_event_count,
+                "event_fetch_seconds": (
+                    event_fetch_seconds
+                ),
+                "pages_per_second": (
+                    pages_per_second
+                ),
+            }
+        )
+
+    return results
+
+
+def collect_competition_club_stats(
+    session: requests.Session,
+    competition_html: str,
+    progress_callback=None,
+    timing_callback=None,
+) -> list[dict]:
+    batch_summary = {}
+
+    def event_progress(
+        key,
+        event_id,
+        completed_event_count,
+        total_event_count,
+        completed_competitions,
+        total_competitions,
+        fetch_elapsed_seconds,
+        pages_per_second,
+    ):
+        if progress_callback is not None:
+            progress_callback(
+                completed_event_count,
+                total_event_count,
+                event_id,
+            )
+
+    results = collect_competitions_club_stats(
+        session,
+        [
+            {
+                "key": 0,
+                "competition_html": competition_html,
+            }
+        ],
+        event_progress_callback=event_progress,
+        summary_callback=batch_summary.update,
+    )
+
+    result = results[0]
+
+    if result["error"] is not None:
+        raise result["error"]
+
+    if timing_callback is not None:
+        timing_callback(
+            {
+                "setup_seconds": result[
+                    "timing"
+                ]["setup_seconds"],
+                "fetch_seconds": batch_summary[
+                    "event_fetch_seconds"
+                ],
+                "parse_seconds": result[
+                    "timing"
+                ]["parse_seconds"],
+                "elapsed_seconds": (
+                    result["timing"][
+                        "setup_seconds"
+                    ]
+                    + batch_summary[
+                        "event_fetch_seconds"
+                    ]
+                    + result["timing"][
+                        "parse_seconds"
+                    ]
+                ),
+            }
+        )
+
+    return result["clubs"]
 
 
 def extract_event_incomes_by_club(

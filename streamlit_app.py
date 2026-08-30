@@ -1,6 +1,7 @@
-import json
+import html
 import time
 
+import requests
 import streamlit as st
 import urls as url
 
@@ -13,8 +14,11 @@ from scraper_utils import (
 from tools.competition_income_tools import (
     get_official_comp_income_csv,
 )
-from tools.inc_competition_ids_tool import (
-    get_inc_competitions_json,
+from tools.inc_history_tool import (
+    aggregate_medals,
+    get_available_seasons,
+    get_country_options,
+    load_inc_history,
 )
 
 
@@ -25,6 +29,12 @@ from tools.inc_competition_ids_tool import (
 if "session" not in st.session_state:
     st.session_state.session = None
 
+if "public_session" not in st.session_state:
+    st.session_state.public_session = None
+
+if "guest_mode" not in st.session_state:
+    st.session_state.guest_mode = False
+
 if "username" not in st.session_state:
     st.session_state.username = None
 
@@ -34,36 +44,34 @@ if "user_id" not in st.session_state:
 if "csv_data" not in st.session_state:
     st.session_state.csv_data = None
 
-if "comp_income_csv_data" not in st.session_state:
-    st.session_state.comp_income_csv_data = None
+if (
+    "comp_income_csv_data"
+    not in st.session_state
+):
+    st.session_state.comp_income_csv_data = (
+        None
+    )
 
-if "comp_income_name" not in st.session_state:
+if (
+    "comp_income_name"
+    not in st.session_state
+):
     st.session_state.comp_income_name = None
 
-if "inc_outputs" not in st.session_state:
-    st.session_state.inc_outputs = None
-
-if "inc_timings" not in st.session_state:
-    st.session_state.inc_timings = None
-
-if "inc_country_count" not in st.session_state:
-    st.session_state.inc_country_count = None
-
-if "inc_competition_count" not in st.session_state:
-    st.session_state.inc_competition_count = None
-
-if "inc_latest_season" not in st.session_state:
-    st.session_state.inc_latest_season = None
-
 if "active_tool" not in st.session_state:
-    st.session_state.active_tool = "Athlete CSV"
+    st.session_state.active_tool = (
+        "Official Competition Income"
+    )
 
 
 # -------------------------
 # login page
 # -------------------------
 
-if st.session_state.session is None:
+if (
+    st.session_state.session is None
+    and not st.session_state.guest_mode
+):
     st.title("maxi-tools")
 
     with st.form("login_form"):
@@ -71,14 +79,37 @@ if st.session_state.session is None:
             "Username",
             key="login_username",
         )
+
         st.text_input(
             "Password",
             type="password",
             key="login_password",
         )
-        submitted = st.form_submit_button(
-            "Log in"
+
+        submitted = (
+            st.form_submit_button(
+                "Log in"
+            )
         )
+
+    if st.button(
+        "Use as guest",
+        use_container_width=True,
+    ):
+        st.session_state.guest_mode = True
+        st.session_state.active_tool = (
+            "Official Competition Income"
+        )
+
+        if (
+            st.session_state.public_session
+            is None
+        ):
+            st.session_state.public_session = (
+                requests.Session()
+            )
+
+        st.rerun()
 
     if submitted:
         try:
@@ -95,6 +126,7 @@ if st.session_state.session is None:
             )
 
             st.session_state.session = session
+            st.session_state.guest_mode = False
             st.session_state.username = (
                 username_display
             )
@@ -107,17 +139,12 @@ if st.session_state.session is None:
             st.session_state.username = None
             st.session_state.user_id = None
             st.session_state.csv_data = None
-            st.session_state.comp_income_csv_data = (
-                None
-            )
-            st.session_state.comp_income_name = None
-            st.session_state.inc_outputs = None
-            st.session_state.inc_timings = None
-            st.session_state.inc_country_count = None
-            st.session_state.inc_competition_count = (
-                None
-            )
-            st.session_state.inc_latest_season = None
+            st.session_state[
+                "comp_income_csv_data"
+            ] = None
+            st.session_state[
+                "comp_income_name"
+            ] = None
 
             if (
                 "login_username"
@@ -141,31 +168,49 @@ if st.session_state.session is None:
     st.stop()
 
 
+def get_public_request_session():
+    if st.session_state.session is not None:
+        return st.session_state.session
+
+    if st.session_state.public_session is None:
+        st.session_state.public_session = (
+            requests.Session()
+        )
+
+    return st.session_state.public_session
+
+
 def select_athlete_csv():
     st.session_state.active_tool = (
         "Athlete CSV"
     )
-    st.session_state.comp_income_csv_data = None
+
+    st.session_state.comp_income_csv_data = (
+        None
+    )
+
     st.session_state.comp_income_name = None
-    st.session_state.inc_outputs = None
-    st.session_state.inc_timings = None
 
 
 def select_official_comp_income():
     st.session_state.active_tool = (
         "Official Competition Income"
     )
+
     st.session_state.csv_data = None
-    st.session_state.inc_outputs = None
-    st.session_state.inc_timings = None
 
 
-def select_inc_competition_ids():
+def select_inc_medals():
     st.session_state.active_tool = (
-        "INC Competition IDs"
+        "INC Medal Counts"
     )
+
     st.session_state.csv_data = None
-    st.session_state.comp_income_csv_data = None
+
+    st.session_state.comp_income_csv_data = (
+        None
+    )
+
     st.session_state.comp_income_name = None
 
 
@@ -196,8 +241,11 @@ def render_official_comp_income_tool():
         comp_id_str = st.text_input(
             "Competition ID"
         )
-        submitted = st.form_submit_button(
-            "Get income CSV"
+
+        submitted = (
+            st.form_submit_button(
+                "Get income CSV"
+            )
         )
 
     comp_id = None
@@ -207,7 +255,9 @@ def render_official_comp_income_tool():
             comp_id_str.isdigit()
             and int(comp_id_str) > 0
         ):
-            comp_id = int(comp_id_str)
+            comp_id = int(
+                comp_id_str
+            )
         else:
             st.error(
                 "Enter a positive integer"
@@ -237,7 +287,7 @@ def render_official_comp_income_tool():
 
             try:
                 placeholder.button(
-                    "Processing event 0/52",
+                    "Processing events",
                     disabled=True,
                     use_container_width=True,
                 )
@@ -246,7 +296,7 @@ def render_official_comp_income_tool():
                     csv_data,
                     comp_name,
                 ) = get_official_comp_income_csv(
-                    st.session_state.session,
+                    get_public_request_session(),
                     comp_id,
                     progress_callback=(
                         update_progress
@@ -295,426 +345,343 @@ def render_official_comp_income_tool():
         )
 
 
-def build_inc_viewer_data() -> dict:
-    countries = {}
-
-    for output in st.session_state.inc_outputs:
-        data = json.loads(
-            output["json_data"].decode("utf-8")
-        )
-
-        for country_id, country_data in (
-            data["countries"].items()
-        ):
-            if country_id not in countries:
-                countries[country_id] = {
-                    "name": country_data["name"],
-                    "competitions": {},
-                }
-
-            countries[country_id][
-                "competitions"
-            ].update(
-                country_data["competitions"]
-            )
-
-    return countries
-
-
-def is_no_club(club: dict) -> bool:
-    return (
-        club.get("club_id") is None
-        and club.get("name") == "No Club"
-    )
-
-
-def build_income_rows(
-    clubs: list[dict],
-) -> list[dict]:
-    regular_clubs = [
-        club
-        for club in clubs
-        if (
-            not is_no_club(club)
-            and club.get("income", 0) > 0
-        )
-    ]
-
-    no_club = [
-        club
-        for club in clubs
-        if (
-            is_no_club(club)
-            and club.get("income", 0) > 0
-        )
-    ]
-
-    regular_clubs.sort(
-        key=lambda club: (
-            -club.get("income", 0),
-            club.get("name", "").lower(),
-        )
-    )
-
-    sorted_clubs = regular_clubs + no_club
-
-    return [
-        {
-            "Rank": index,
-            "Club": club["name"],
-            "Income": club.get("income", 0),
-        }
-        for index, club in enumerate(
-            sorted_clubs,
-            start=1,
-        )
-    ]
-
-
 def build_medal_rows(
     clubs: list[dict],
 ) -> list[dict]:
-    def has_medal(club: dict) -> bool:
-        return (
-            club.get("gold", 0)
-            + club.get("silver", 0)
-            + club.get("bronze", 0)
-            > 0
-        )
-
-    regular_clubs = [
-        club
-        for club in clubs
-        if (
-            not is_no_club(club)
-            and has_medal(club)
-        )
-    ]
-
-    no_club = [
-        club
-        for club in clubs
-        if (
-            is_no_club(club)
-            and has_medal(club)
-        )
-    ]
-
-    regular_clubs.sort(
-        key=lambda club: (
-            -club.get("gold", 0),
-            -club.get("silver", 0),
-            -club.get("bronze", 0),
-            club.get("name", "").lower(),
-        )
-    )
-
-    sorted_clubs = regular_clubs + no_club
-
     return [
         {
             "Rank": index,
             "Club": club["name"],
-            "Gold": club.get("gold", 0),
-            "Silver": club.get("silver", 0),
-            "Bronze": club.get("bronze", 0),
+            "Gold": club.get(
+                "gold",
+                0,
+            ),
+            "Silver": club.get(
+                "silver",
+                0,
+            ),
+            "Bronze": club.get(
+                "bronze",
+                0,
+            ),
             "Total": (
-                club.get("gold", 0)
-                + club.get("silver", 0)
-                + club.get("bronze", 0)
+                club.get(
+                    "gold",
+                    0,
+                )
+                + club.get(
+                    "silver",
+                    0,
+                )
+                + club.get(
+                    "bronze",
+                    0,
+                )
             ),
         }
         for index, club in enumerate(
-            sorted_clubs,
+            clubs,
             start=1,
         )
     ]
 
 
-def render_inc_viewer():
-    countries = build_inc_viewer_data()
+def render_medal_table(
+    rows: list[dict],
+):
+    table_rows = []
 
-    if not countries:
-        return
-
-    st.markdown("### Viewer")
-
-    country_ids = sorted(
-        countries,
-        key=lambda country_id: (
-            countries[country_id][
-                "name"
-            ].lower()
-        ),
-    )
-
-    selected_country_id = st.selectbox(
-        "Nation",
-        options=country_ids,
-        format_func=lambda country_id: (
-            countries[country_id]["name"]
-        ),
-        key="inc_viewer_country",
-    )
-
-    country_data = countries[
-        selected_country_id
-    ]
-
-    seasons = sorted(
-        country_data["competitions"],
-        key=int,
-        reverse=True,
-    )
-
-    selected_season = st.selectbox(
-        "Season",
-        options=seasons,
-        key="inc_viewer_season",
-    )
-
-    view_type = st.radio(
-        "View",
-        options=(
-            "Income",
-            "Medals",
-        ),
-        horizontal=True,
-        key="inc_viewer_type",
-    )
-
-    competition_data = (
-        country_data["competitions"][
-            selected_season
-        ]
-    )
-
-    clubs = competition_data["clubs"]
-
-    if view_type == "Income":
-        rows = build_income_rows(clubs)
-
-        st.dataframe(
-            rows,
-            hide_index=True,
-            use_container_width=True,
-            column_config={
-                "Rank": st.column_config.NumberColumn(
-                    "Rank",
-                    format="%d",
-                ),
-                "Income": (
-                    st.column_config.NumberColumn(
-                        "Income",
-                        format="%d",
-                    )
-                ),
-            },
+    for row in rows:
+        club_name = html.escape(
+            str(row["Club"])
         )
 
-    else:
-        rows = build_medal_rows(clubs)
-
-        st.dataframe(
-            rows,
-            hide_index=True,
-            use_container_width=True,
-            column_config={
-                "Rank": st.column_config.NumberColumn(
-                    "Rank",
-                    format="%d",
-                ),
-                "Gold": st.column_config.NumberColumn(
-                    "Gold",
-                    format="%d",
-                ),
-                "Silver": (
-                    st.column_config.NumberColumn(
-                        "Silver",
-                        format="%d",
-                    )
-                ),
-                "Bronze": (
-                    st.column_config.NumberColumn(
-                        "Bronze",
-                        format="%d",
-                    )
-                ),
-                "Total": (
-                    st.column_config.NumberColumn(
-                        "Total",
-                        format="%d",
-                    )
-                ),
-            },
-        )
-
-
-def render_inc_competition_ids_tool():
-    if st.button(
-        "Get INC competition data"
-    ):
-        placeholder = st.empty()
-
-        def update_progress(
-            current,
-            total,
-            country_id,
-            country_name,
-        ):
-            placeholder.button(
-                (
-                    f"Processing "
-                    f"{country_name} "
-                    f"({current}/{total})"
-                ),
-                disabled=True,
-                use_container_width=True,
-            )
-
-        try:
-            result = get_inc_competitions_json(
-                st.session_state.session,
-                progress_callback=(
-                    update_progress
-                ),
-            )
-
-            placeholder.empty()
-
-            st.session_state.inc_outputs = (
-                result["outputs"]
-            )
-            st.session_state.inc_timings = (
-                result["timings"]
-            )
-            st.session_state.inc_country_count = (
-                result["country_count"]
-            )
-            st.session_state[
-                "inc_competition_count"
-            ] = result["competition_count"]
-            st.session_state.inc_latest_season = (
-                result["latest_season"]
-            )
-
-        except Exception as e:
-            placeholder.empty()
-
-            st.session_state.inc_outputs = None
-            st.session_state.inc_timings = None
-            st.session_state.inc_country_count = None
-            st.session_state[
-                "inc_competition_count"
-            ] = None
-            st.session_state.inc_latest_season = None
-
-            st.exception(e)
-
-    if st.session_state.inc_outputs is None:
-        return
-
-    for timing in st.session_state.inc_timings:
-        st.write(
+        table_rows.append(
             (
-                f"{timing['country_name']} "
-                f"season "
-                f"{st.session_state.inc_latest_season}: "
-                f"{timing['elapsed_seconds']:.2f}s"
+                "<tr>"
+                f"<td>{row['Rank']}</td>"
+                f"<td>{club_name}</td>"
+                f"<td>{row['Gold']}</td>"
+                f"<td>{row['Silver']}</td>"
+                f"<td>{row['Bronze']}</td>"
+                f"<td>{row['Total']}</td>"
+                "</tr>"
             )
         )
 
-    st.write(
-        (
-            f"Found "
-            f"{st.session_state.inc_competition_count} "
-            f"INC competitions across "
-            f"{st.session_state.inc_country_count} "
-            f"countries. Latest season: "
-            f"{st.session_state.inc_latest_season}."
+    table_html = (
+        """
+<style>
+.inc-medal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.inc-medal-table th,
+.inc-medal-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+}
+
+.inc-medal-table th {
+    text-align: left;
+    font-weight: 600;
+}
+
+.inc-medal-table th:nth-child(1),
+.inc-medal-table td:nth-child(1),
+.inc-medal-table th:nth-child(3),
+.inc-medal-table td:nth-child(3),
+.inc-medal-table th:nth-child(4),
+.inc-medal-table td:nth-child(4),
+.inc-medal-table th:nth-child(5),
+.inc-medal-table td:nth-child(5),
+.inc-medal-table th:nth-child(6),
+.inc-medal-table td:nth-child(6) {
+    text-align: right;
+}
+
+.inc-medal-table tbody tr:hover {
+    background: rgba(128, 128, 128, 0.08);
+}
+</style>
+
+<table class="inc-medal-table">
+<thead>
+<tr>
+<th>Rank</th>
+<th>Club</th>
+<th>Gold</th>
+<th>Silver</th>
+<th>Bronze</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+"""
+        + "".join(table_rows)
+        + """
+</tbody>
+</table>
+"""
+    )
+
+    st.markdown(
+        table_html,
+        unsafe_allow_html=True,
+    )
+
+
+def render_inc_medals_tool():
+    try:
+        history = load_inc_history()
+    except (
+        FileNotFoundError,
+        ValueError,
+    ) as exc:
+        st.error(str(exc))
+        return
+
+    countries = history["countries"]
+
+    country_ids = (
+        get_country_options(
+            history
         )
     )
 
-    for output in st.session_state.inc_outputs:
-        st.download_button(
-            label=(
-                f"Download "
-                f"{output['country_name']} JSON"
-            ),
-            data=output["json_data"],
-            file_name=output["file_name"],
-            mime="application/json",
-            key=(
-                f"download_inc_"
-                f"{output['country_id']}"
-            ),
+    all_option = "__all__"
+
+    selected_country = st.selectbox(
+        "Nation",
+        options=[
+            all_option,
+            *country_ids,
+        ],
+        format_func=lambda value: (
+            "All nations"
+            if value == all_option
+            else countries[value]["name"]
+        ),
+        key="inc_medals_country",
+    )
+
+    country_id = (
+        None
+        if selected_country == all_option
+        else selected_country
+    )
+
+    available_seasons = (
+        get_available_seasons(
+            history,
+            country_id,
+        )
+    )
+
+    if not available_seasons:
+        st.warning(
+            "No seasons are available."
+        )
+        return
+
+    season_col1, season_col2 = (
+        st.columns(2)
+    )
+
+    with season_col1:
+        from_season = st.selectbox(
+            "From season",
+            options=available_seasons,
+            index=0,
+            key="inc_medals_from_season",
         )
 
-    render_inc_viewer()
+    with season_col2:
+        to_season = st.selectbox(
+            "To season",
+            options=available_seasons,
+            index=0,
+            key="inc_medals_to_season",
+        )
+
+    clubs = aggregate_medals(
+        history,
+        country_id,
+        from_season,
+        to_season,
+    )
+
+    if not clubs:
+        st.info(
+            "No medal results are available for that selection."
+        )
+        return
+
+    rows = build_medal_rows(
+        clubs
+    )
+
+    render_medal_table(
+        rows
+    )
 
 
 # -------------------------
 # tools page
 # -------------------------
 
-st.markdown(
-    (
-        f"### You are signed in as "
-        f"**{st.session_state.username}**"
-    )
+is_authenticated = (
+    st.session_state.session is not None
 )
 
-if st.button("Logout"):
-    sess = st.session_state.session
+if is_authenticated:
+    st.markdown(
+        (
+            f"### You are signed in as "
+            f"**{st.session_state.username}**"
+        )
+    )
 
-    if sess is not None:
-        sess.get(
-            url.LOGOUT_URL,
-            timeout=5,
+    if st.button("Logout"):
+        sess = st.session_state.session
+
+        if sess is not None:
+            sess.get(
+                url.LOGOUT_URL,
+                timeout=5,
+            )
+
+        st.success(
+            "Logout successful!"
         )
 
-    st.success(
-        "Logout successful!"
+        time.sleep(2)
+
+        st.session_state.session = None
+        st.session_state.guest_mode = False
+        st.session_state.username = None
+        st.session_state.user_id = None
+        st.session_state.csv_data = None
+        st.session_state.comp_income_csv_data = (
+            None
+        )
+        st.session_state.comp_income_name = None
+        st.session_state.active_tool = (
+            "Official Competition Income"
+        )
+
+        st.rerun()
+
+else:
+    st.markdown(
+        "### Guest"
     )
 
-    time.sleep(2)
-
-    st.session_state.session = None
-    st.session_state.username = None
-    st.session_state.user_id = None
-    st.session_state.csv_data = None
-    st.session_state.comp_income_csv_data = None
-    st.session_state.comp_income_name = None
-    st.session_state.inc_outputs = None
-    st.session_state.inc_timings = None
-    st.session_state.inc_country_count = None
-    st.session_state.inc_competition_count = None
-    st.session_state.inc_latest_season = None
-
-    st.rerun()
+    if st.button("Sign in"):
+        st.session_state.guest_mode = False
+        st.session_state.active_tool = (
+            "Official Competition Income"
+        )
+        st.rerun()
 
 
-tool_col1, tool_col2, tool_col3 = st.columns(
-    3
-)
-
-with tool_col1:
-    st.button(
-        "Athlete CSV",
-        on_click=select_athlete_csv,
+if (
+    not is_authenticated
+    and st.session_state.active_tool
+    == "Athlete CSV"
+):
+    st.session_state.active_tool = (
+        "Official Competition Income"
     )
 
-with tool_col2:
-    st.button(
-        "Official Competition Income",
-        on_click=select_official_comp_income,
+
+if is_authenticated:
+    (
+        tool_col1,
+        tool_col2,
+        tool_col3,
+    ) = st.columns(3)
+
+    with tool_col1:
+        st.button(
+            "Athlete CSV",
+            on_click=select_athlete_csv,
+        )
+
+    with tool_col2:
+        st.button(
+            "Official Competition Income",
+            on_click=(
+                select_official_comp_income
+            ),
+        )
+
+    with tool_col3:
+        st.button(
+            "INC Medal Counts",
+            on_click=select_inc_medals,
+        )
+
+else:
+    tool_col1, tool_col2 = (
+        st.columns(2)
     )
 
-with tool_col3:
-    st.button(
-        "INC Competition IDs",
-        on_click=select_inc_competition_ids,
-    )
+    with tool_col1:
+        st.button(
+            "Official Competition Income",
+            on_click=(
+                select_official_comp_income
+            ),
+        )
+
+    with tool_col2:
+        st.button(
+            "INC Medal Counts",
+            on_click=select_inc_medals,
+        )
 
 
 st.markdown(
@@ -724,6 +691,7 @@ st.markdown(
 if (
     st.session_state.active_tool
     == "Athlete CSV"
+    and is_authenticated
 ):
     render_athlete_csv_tool()
 
@@ -735,6 +703,6 @@ elif (
 
 elif (
     st.session_state.active_tool
-    == "INC Competition IDs"
+    == "INC Medal Counts"
 ):
-    render_inc_competition_ids_tool()
+    render_inc_medals_tool()
