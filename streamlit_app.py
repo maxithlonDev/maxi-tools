@@ -1,8 +1,12 @@
+import csv
 import html
+import io
+import json
 import time
 
 import requests
 import streamlit as st
+import streamlit.components.v1 as components
 import urls as url
 
 from scraper import login
@@ -386,6 +390,175 @@ def build_medal_rows(
     ]
 
 
+def build_medal_copy_text(
+    rows: list[dict],
+) -> str:
+    lines = [
+        "\t".join(
+            (
+                "Rank",
+                "Club",
+                "Gold",
+                "Silver",
+                "Bronze",
+                "Total",
+            )
+        )
+    ]
+
+    for row in rows:
+        lines.append(
+            "\t".join(
+                (
+                    str(row["Rank"]),
+                    str(row["Club"]),
+                    str(row["Gold"]),
+                    str(row["Silver"]),
+                    str(row["Bronze"]),
+                    str(row["Total"]),
+                )
+            )
+        )
+
+    return "\n".join(lines)
+
+
+def build_medal_csv(
+    rows: list[dict],
+) -> bytes:
+    buffer = io.StringIO(
+        newline=""
+    )
+
+    writer = csv.writer(buffer)
+
+    writer.writerow(
+        (
+            "Rank",
+            "Club",
+            "Gold",
+            "Silver",
+            "Bronze",
+            "Total",
+        )
+    )
+
+    for row in rows:
+        writer.writerow(
+            (
+                row["Rank"],
+                row["Club"],
+                row["Gold"],
+                row["Silver"],
+                row["Bronze"],
+                row["Total"],
+            )
+        )
+
+    return buffer.getvalue().encode(
+        "utf-8-sig"
+    )
+
+
+def render_copy_all_button(
+    rows: list[dict],
+):
+    copy_text = (
+        build_medal_copy_text(
+            rows
+        )
+    )
+
+    copy_text_js = json.dumps(
+        copy_text
+    )
+
+    components.html(
+        f"""
+<!doctype html>
+<html>
+<head>
+<style>
+html,
+body {{
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}}
+
+button {{
+    width: 100%;
+    height: 38px;
+    border: 1px solid rgba(49, 51, 63, 0.2);
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}}
+
+button:hover {{
+    border-color: rgba(49, 51, 63, 0.4);
+}}
+
+button:active {{
+    background: rgba(49, 51, 63, 0.05);
+}}
+</style>
+</head>
+<body>
+<button id="copyButton">
+    Copy all
+</button>
+
+<script>
+const copyText = {copy_text_js};
+const button = document.getElementById("copyButton");
+
+button.addEventListener("click", async () => {{
+    try {{
+        await navigator.clipboard.writeText(copyText);
+        button.textContent = "Copied!";
+        setTimeout(
+            () => {{
+                button.textContent = "Copy all";
+            }},
+            1500
+        );
+    }} catch (error) {{
+        const textarea = document.createElement("textarea");
+        textarea.value = copyText;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+
+        button.textContent = "Copied!";
+        setTimeout(
+            () => {{
+                button.textContent = "Copy all";
+            }},
+            1500
+        );
+    }}
+}});
+</script>
+</body>
+</html>
+""",
+        height=38,
+        scrolling=False,
+    )
+
+
 def render_medal_table(
     rows: list[dict],
 ):
@@ -473,6 +646,46 @@ def render_medal_table(
     )
 
 
+def make_medal_csv_filename(
+    country_name: str,
+    from_season: int,
+    to_season: int,
+) -> str:
+    minimum_season = min(
+        from_season,
+        to_season,
+    )
+
+    maximum_season = max(
+        from_season,
+        to_season,
+    )
+
+    safe_country_name = "".join(
+        character
+        if (
+            character.isalnum()
+            or character in (" ", "-", "_")
+        )
+        else "_"
+        for character in country_name
+    ).strip()
+
+    if minimum_season == maximum_season:
+        return (
+            f"INC Medals "
+            f"{safe_country_name} "
+            f"Season {minimum_season}.csv"
+        )
+
+    return (
+        f"INC Medals "
+        f"{safe_country_name} "
+        f"Seasons {minimum_season}-"
+        f"{maximum_season}.csv"
+    )
+
+
 def render_inc_medals_tool():
     try:
         history = load_inc_history()
@@ -511,6 +724,12 @@ def render_inc_medals_tool():
         None
         if selected_country == all_option
         else selected_country
+    )
+
+    country_name = (
+        "All Nations"
+        if country_id is None
+        else countries[country_id]["name"]
     )
 
     available_seasons = (
@@ -562,6 +781,30 @@ def render_inc_medals_tool():
     rows = build_medal_rows(
         clubs
     )
+
+    action_col1, action_col2 = (
+        st.columns(2)
+    )
+
+    with action_col1:
+        render_copy_all_button(
+            rows
+        )
+
+    with action_col2:
+        st.download_button(
+            label="Download as CSV",
+            data=build_medal_csv(
+                rows
+            ),
+            file_name=make_medal_csv_filename(
+                country_name,
+                from_season,
+                to_season,
+            ),
+            mime="text/csv",
+            use_container_width=True,
+        )
 
     render_medal_table(
         rows
