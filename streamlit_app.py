@@ -19,7 +19,6 @@ from tools.competition_income_tools import (
     get_official_comp_income_csv,
 )
 from tools.inc_history_tool import (
-    aggregate_medals,
     get_available_seasons,
     get_country_options,
     load_inc_history,
@@ -349,6 +348,275 @@ def render_official_comp_income_tool():
         )
 
 
+def is_no_club(
+    club: dict,
+) -> bool:
+    return (
+        club.get("club_id") is None
+        and club.get("name") == "No Club"
+    )
+
+
+def make_club_key(
+    club: dict,
+):
+    club_id = club.get(
+        "club_id"
+    )
+
+    if club_id is not None:
+        return (
+            "id",
+            str(club_id),
+        )
+
+    return (
+        "name",
+        club.get(
+            "name",
+            "",
+        ),
+    )
+
+
+def aggregate_medals_with_nationality(
+    history: dict,
+    country_id,
+    first_season: int,
+    last_season: int,
+) -> list[dict]:
+    countries = history.get(
+        "countries",
+        {},
+    )
+
+    minimum_season = min(
+        first_season,
+        last_season,
+    )
+
+    maximum_season = max(
+        first_season,
+        last_season,
+    )
+
+    if country_id is None:
+        selected_countries = (
+            countries.values()
+        )
+    else:
+        selected_countries = [
+            countries.get(
+                str(country_id),
+                {},
+            )
+        ]
+
+    aggregated = {}
+
+    for country in selected_countries:
+        competitions = country.get(
+            "competitions",
+            {},
+        )
+
+        for (
+            season_key,
+            competition,
+        ) in competitions.items():
+            try:
+                season = int(
+                    season_key
+                )
+            except (
+                TypeError,
+                ValueError,
+            ):
+                continue
+
+            if not (
+                minimum_season
+                <= season
+                <= maximum_season
+            ):
+                continue
+
+            for club in competition.get(
+                "clubs",
+                [],
+            ):
+                key = make_club_key(
+                    club
+                )
+
+                if key not in aggregated:
+                    aggregated[key] = {
+                        "club_id": club.get(
+                            "club_id"
+                        ),
+                        "name": club.get(
+                            "name",
+                            "",
+                        ),
+                        "nation_id": club.get(
+                            "nation_id"
+                        ),
+                        "nationality": club.get(
+                            "nationality"
+                        ),
+                        "nation_code": club.get(
+                            "nation_code"
+                        ),
+                        "gold": 0,
+                        "silver": 0,
+                        "bronze": 0,
+                    }
+                else:
+                    if (
+                        aggregated[key].get(
+                            "nation_id"
+                        )
+                        is None
+                        and club.get(
+                            "nation_id"
+                        )
+                        is not None
+                    ):
+                        aggregated[key][
+                            "nation_id"
+                        ] = club.get(
+                            "nation_id"
+                        )
+
+                    if (
+                        not aggregated[key].get(
+                            "nationality"
+                        )
+                        and club.get(
+                            "nationality"
+                        )
+                    ):
+                        aggregated[key][
+                            "nationality"
+                        ] = club.get(
+                            "nationality"
+                        )
+
+                    if (
+                        not aggregated[key].get(
+                            "nation_code"
+                        )
+                        and club.get(
+                            "nation_code"
+                        )
+                    ):
+                        aggregated[key][
+                            "nation_code"
+                        ] = club.get(
+                            "nation_code"
+                        )
+
+                aggregated[key]["gold"] += (
+                    club.get(
+                        "gold",
+                        0,
+                    )
+                )
+
+                aggregated[key]["silver"] += (
+                    club.get(
+                        "silver",
+                        0,
+                    )
+                )
+
+                aggregated[key]["bronze"] += (
+                    club.get(
+                        "bronze",
+                        0,
+                    )
+                )
+
+    clubs = [
+        club
+        for club in aggregated.values()
+        if (
+            club["gold"]
+            or club["silver"]
+            or club["bronze"]
+        )
+    ]
+
+    regular_clubs = [
+        club
+        for club in clubs
+        if not is_no_club(
+            club
+        )
+    ]
+
+    no_club_rows = [
+        club
+        for club in clubs
+        if is_no_club(
+            club
+        )
+    ]
+
+    regular_clubs.sort(
+        key=lambda club: (
+            -club["gold"],
+            -club["silver"],
+            -club["bronze"],
+            club["name"].casefold(),
+            str(
+                club.get(
+                    "club_id"
+                )
+                or ""
+            ),
+        )
+    )
+
+    return (
+        regular_clubs
+        + no_club_rows
+    )
+
+
+def get_club_nationality_options(
+    clubs: list[dict],
+) -> list[tuple[str, str]]:
+    nationalities = {}
+
+    for club in clubs:
+        nation_code = club.get(
+            "nation_code"
+        )
+
+        if not nation_code:
+            continue
+
+        nationality = (
+            club.get(
+                "nationality"
+            )
+            or nation_code
+        )
+
+        nationalities[
+            nation_code
+        ] = nationality
+
+    return sorted(
+        nationalities.items(),
+        key=lambda item: (
+            item[1].casefold(),
+            item[0],
+        ),
+    )
+
+
 def build_medal_rows(
     clubs: list[dict],
 ) -> list[dict]:
@@ -356,6 +624,11 @@ def build_medal_rows(
         {
             "Rank": index,
             "Club": club["name"],
+            "Nation": club.get(
+                "nation_code",
+                "",
+            )
+            or "",
             "Gold": club.get(
                 "gold",
                 0,
@@ -398,6 +671,7 @@ def build_medal_copy_text(
             (
                 "Rank",
                 "Club",
+                "Nation",
                 "Gold",
                 "Silver",
                 "Bronze",
@@ -412,6 +686,7 @@ def build_medal_copy_text(
                 (
                     str(row["Rank"]),
                     str(row["Club"]),
+                    str(row["Nation"]),
                     str(row["Gold"]),
                     str(row["Silver"]),
                     str(row["Bronze"]),
@@ -436,6 +711,7 @@ def build_medal_csv(
         (
             "Rank",
             "Club",
+            "Nation",
             "Gold",
             "Silver",
             "Bronze",
@@ -448,6 +724,7 @@ def build_medal_csv(
             (
                 row["Rank"],
                 row["Club"],
+                row["Nation"],
                 row["Gold"],
                 row["Silver"],
                 row["Bronze"],
@@ -569,11 +846,16 @@ def render_medal_table(
             str(row["Club"])
         )
 
+        nation = html.escape(
+            str(row["Nation"])
+        )
+
         table_rows.append(
             (
                 "<tr>"
                 f"<td>{row['Rank']}</td>"
                 f"<td>{club_name}</td>"
+                f"<td>{nation}</td>"
                 f"<td>{row['Gold']}</td>"
                 f"<td>{row['Silver']}</td>"
                 f"<td>{row['Bronze']}</td>"
@@ -604,14 +886,14 @@ def render_medal_table(
 
 .inc-medal-table th:nth-child(1),
 .inc-medal-table td:nth-child(1),
-.inc-medal-table th:nth-child(3),
-.inc-medal-table td:nth-child(3),
 .inc-medal-table th:nth-child(4),
 .inc-medal-table td:nth-child(4),
 .inc-medal-table th:nth-child(5),
 .inc-medal-table td:nth-child(5),
 .inc-medal-table th:nth-child(6),
-.inc-medal-table td:nth-child(6) {
+.inc-medal-table td:nth-child(6),
+.inc-medal-table th:nth-child(7),
+.inc-medal-table td:nth-child(7) {
     text-align: right;
 }
 
@@ -625,6 +907,7 @@ def render_medal_table(
 <tr>
 <th>Rank</th>
 <th>Club</th>
+<th>Nation</th>
 <th>Gold</th>
 <th>Silver</th>
 <th>Bronze</th>
@@ -765,12 +1048,48 @@ def render_inc_medals_tool():
             key="inc_medals_to_season",
         )
 
-    clubs = aggregate_medals(
+    clubs = aggregate_medals_with_nationality(
         history,
         country_id,
         from_season,
         to_season,
     )
+
+    nationality_options = (
+        get_club_nationality_options(
+            clubs
+        )
+    )
+
+    nationality_by_code = dict(
+        nationality_options
+    )
+
+    selected_nation_code = st.selectbox(
+        "Club nationality",
+        options=[
+            code
+            for code, _
+            in nationality_options
+        ],
+        index=None,
+        placeholder="All nationalities",
+        format_func=lambda code: (
+            f"{code} - "
+            f"{nationality_by_code[code]}"
+        ),
+        key="inc_medals_club_nationality",
+    )
+
+    if selected_nation_code is not None:
+        clubs = [
+            club
+            for club in clubs
+            if club.get(
+                "nation_code"
+            )
+            == selected_nation_code
+        ]
 
     if not clubs:
         st.info(
