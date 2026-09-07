@@ -1,0 +1,480 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<style>
+:root {
+    color-scheme: light dark;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+}
+
+.control {
+    width: max-content;
+}
+
+.heading {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    height: 26px;
+}
+
+.endpoint {
+    font-size: 15px;
+    line-height: 26px;
+    white-space: nowrap;
+}
+
+.endpoint.left {
+    margin-right: 7px;
+}
+
+.endpoint.right {
+    margin-left: 7px;
+}
+
+.switch {
+    position: relative;
+    box-sizing: border-box;
+    height: 24px;
+    padding: 0;
+
+    border:
+        1px solid
+        rgba(128, 128, 128, 0.42);
+    border-radius: 999px;
+
+    background:
+        rgba(128, 128, 128, 0.16);
+
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.switch.two {
+    width: 42px;
+}
+
+.switch.three {
+    width: 64px;
+}
+
+.knob {
+    position: absolute;
+
+    top: 2px;
+    left: 3px;
+
+    width: 18px;
+    height: 18px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: #0068c9;
+
+    pointer-events: none;
+
+    transition:
+        transform 80ms ease-out;
+}
+
+.switch:focus-visible {
+    outline:
+        2px solid
+        rgba(0, 104, 201, 0.6);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .knob {
+        transition: none;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="control">
+    <div
+        id="heading"
+        class="heading"
+    ></div>
+
+    <div class="row">
+        <span
+            id="leftLabel"
+            class="endpoint left"
+        ></span>
+
+        <button
+            id="switch"
+            class="switch"
+            type="button"
+            aria-label=""
+        >
+            <span
+                id="knob"
+                class="knob"
+            ></span>
+        </button>
+
+        <span
+            id="rightLabel"
+            class="endpoint right"
+        ></span>
+    </div>
+</div>
+
+<script>
+const heading = document.getElementById(
+    "heading"
+);
+
+const leftLabel = document.getElementById(
+    "leftLabel"
+);
+
+const rightLabel = document.getElementById(
+    "rightLabel"
+);
+
+const switchElement = document.getElementById(
+    "switch"
+);
+
+const knob = document.getElementById(
+    "knob"
+);
+
+let options = [];
+let value = null;
+let syncTimer = null;
+
+
+function sendMessage(type, extra = {}) {
+    window.parent.postMessage(
+        {
+            isStreamlitMessage: true,
+            type,
+            ...extra,
+        },
+        "*"
+    );
+}
+
+
+function setFrameHeight() {
+    sendMessage(
+        "streamlit:setFrameHeight",
+        {
+            height: 55,
+        }
+    );
+}
+
+
+function sendComponentValue(nextValue) {
+    sendMessage(
+        "streamlit:setComponentValue",
+        {
+            value: nextValue,
+            dataType: "json",
+        }
+    );
+}
+
+
+function selectedIndex() {
+    const index = options.indexOf(value);
+
+    return index >= 0
+        ? index
+        : 0;
+}
+
+
+function knobOffset(index) {
+    if (options.length === 2) {
+        return index === 0
+            ? 0
+            : 18;
+    }
+
+    if (options.length === 3) {
+        return (
+            [
+                0,
+                20,
+                40,
+            ][index]
+            ?? 0
+        );
+    }
+
+    return 0;
+}
+
+
+function render() {
+    const count = options.length;
+    const index = selectedIndex();
+
+    switchElement.classList.toggle(
+        "two",
+        count === 2
+    );
+
+    switchElement.classList.toggle(
+        "three",
+        count === 3
+    );
+
+    knob.style.transform = (
+        `translateX(${knobOffset(index)}px)`
+    );
+
+    switchElement.setAttribute(
+        "aria-valuetext",
+        String(value ?? "")
+    );
+
+    setFrameHeight();
+}
+
+
+/*
+ * The three-way Sex control updates visually
+ * immediately in this iframe.
+ *
+ * Its Python/Streamlit synchronization is delayed
+ * briefly so the iframe is not destroyed by a rerun
+ * before the user sees the knob move.
+ *
+ * Repeated fast clicks collapse into one sync.
+ */
+function synchronizeValue() {
+    if (syncTimer !== null) {
+        clearTimeout(syncTimer);
+        syncTimer = null;
+    }
+
+    if (options.length === 3) {
+        syncTimer = setTimeout(
+            () => {
+                syncTimer = null;
+                sendComponentValue(value);
+            },
+            250
+        );
+
+        return;
+    }
+
+    sendComponentValue(value);
+}
+
+
+function setValue(nextValue) {
+    if (
+        nextValue == null
+        || !options.includes(nextValue)
+        || nextValue === value
+    ) {
+        return;
+    }
+
+    /*
+     * This happens synchronously in the browser.
+     * The knob moves before Streamlit is contacted.
+     */
+    value = nextValue;
+    render();
+
+    synchronizeValue();
+}
+
+
+function selectThreeWayFromPointer(event) {
+    const rect = (
+        switchElement.getBoundingClientRect()
+    );
+
+    const relativeX = (
+        event.clientX - rect.left
+    );
+
+    const fraction = (
+        relativeX / rect.width
+    );
+
+    if (fraction < 1 / 3) {
+        setValue(options[0]);
+        return;
+    }
+
+    if (fraction < 2 / 3) {
+        setValue(options[1]);
+        return;
+    }
+
+    setValue(options[2]);
+}
+
+
+function flipTwoWay() {
+    const index = selectedIndex();
+
+    setValue(
+        options[
+            index === 0
+                ? 1
+                : 0
+        ]
+    );
+}
+
+
+switchElement.addEventListener(
+    "click",
+    event => {
+        if (options.length === 2) {
+            flipTwoWay();
+            return;
+        }
+
+        if (options.length === 3) {
+            selectThreeWayFromPointer(
+                event
+            );
+        }
+    }
+);
+
+
+switchElement.addEventListener(
+    "keydown",
+    event => {
+        if (
+            event.key !== "ArrowLeft"
+            && event.key !== "ArrowRight"
+            && event.key !== " "
+            && event.key !== "Enter"
+        ) {
+            return;
+        }
+
+        event.preventDefault();
+
+        if (options.length === 2) {
+            flipTwoWay();
+            return;
+        }
+
+        let index = selectedIndex();
+
+        if (event.key === "ArrowLeft") {
+            index = Math.max(
+                0,
+                index - 1
+            );
+        } else if (
+            event.key === "ArrowRight"
+        ) {
+            index = Math.min(
+                options.length - 1,
+                index + 1
+            );
+        } else {
+            return;
+        }
+
+        setValue(options[index]);
+    }
+);
+
+
+window.addEventListener(
+    "message",
+    event => {
+        const data = event.data;
+
+        if (
+            !data
+            || data.type !== "streamlit:render"
+        ) {
+            return;
+        }
+
+        const args = data.args ?? {};
+
+        options = Array.isArray(
+            args.options
+        )
+            ? args.options
+            : [];
+
+        /*
+         * Do not overwrite a newer local Sex choice
+         * while its delayed Streamlit sync is pending.
+         */
+        if (
+            options.length !== 3
+            || syncTimer === null
+        ) {
+            value = args.value;
+        }
+
+        heading.textContent = (
+            args.heading ?? ""
+        );
+
+        leftLabel.textContent = (
+            args.left_text ?? ""
+        );
+
+        rightLabel.textContent = (
+            args.right_text ?? ""
+        );
+
+        switchElement.setAttribute(
+            "aria-label",
+            args.heading ?? "Switch"
+        );
+
+        render();
+    }
+);
+
+
+sendMessage(
+    "streamlit:componentReady",
+    {
+        apiVersion: 1,
+    }
+);
+
+setFrameHeight();
+</script>
+</body>
+</html>

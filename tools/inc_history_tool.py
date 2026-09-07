@@ -207,13 +207,62 @@ def make_club_key(
     if club_id is not None:
         return (
             "id",
-            club_id,
+            str(club_id),
         )
 
     return (
         "name",
         club.get("name", ""),
     )
+
+
+def update_club_identity(
+    aggregated_club: dict,
+    source_club: dict,
+):
+    if (
+        aggregated_club.get(
+            "nation_id"
+        )
+        is None
+        and source_club.get(
+            "nation_id"
+        )
+        is not None
+    ):
+        aggregated_club[
+            "nation_id"
+        ] = source_club.get(
+            "nation_id"
+        )
+
+    if (
+        not aggregated_club.get(
+            "nationality"
+        )
+        and source_club.get(
+            "nationality"
+        )
+    ):
+        aggregated_club[
+            "nationality"
+        ] = source_club.get(
+            "nationality"
+        )
+
+    if (
+        not aggregated_club.get(
+            "nation_code"
+        )
+        and source_club.get(
+            "nation_code"
+        )
+    ):
+        aggregated_club[
+            "nation_code"
+        ] = source_club.get(
+            "nation_code"
+        )
 
 
 def aggregate_medals(
@@ -316,10 +365,31 @@ def aggregate_medals(
                                 "",
                             )
                         ),
+                        "nation_id": (
+                            club.get(
+                                "nation_id"
+                            )
+                        ),
+                        "nationality": (
+                            club.get(
+                                "nationality"
+                            )
+                        ),
+                        "nation_code": (
+                            club.get(
+                                "nation_code"
+                            )
+                        ),
                         "gold": 0,
                         "silver": 0,
                         "bronze": 0,
                     }
+
+                else:
+                    update_club_identity(
+                        aggregated[key],
+                        club,
+                    )
 
                 aggregated[key]["gold"] += int(
                     club.get(
@@ -369,9 +439,9 @@ def aggregate_medals(
             -club["bronze"],
             club["name"].lower(),
             (
-                club["club_id"]
+                str(club["club_id"])
                 if club["club_id"] is not None
-                else -1
+                else ""
             ),
         )
     )
@@ -387,4 +457,37 @@ def aggregate_medals(
     return (
         regular_clubs
         + no_club
+    )
+
+
+def get_club_nationality_options(
+    clubs: list[dict],
+) -> list[tuple[str, str]]:
+    nationalities = {}
+
+    for club in clubs:
+        nation_code = club.get(
+            "nation_code"
+        )
+
+        if not nation_code:
+            continue
+
+        nationality = (
+            club.get(
+                "nationality"
+            )
+            or nation_code
+        )
+
+        nationalities[
+            nation_code
+        ] = nationality
+
+    return sorted(
+        nationalities.items(),
+        key=lambda item: (
+            item[1].casefold(),
+            item[0],
+        ),
     )
