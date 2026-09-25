@@ -21,7 +21,7 @@ ATHLETE_CSV = "Athlete CSV"
 OFFICIAL_COMP_INCOME = "Official Competition Income"
 INC_MEDALS = "INC Medal Counts"
 EVENT_SPECIALTY_MEDALS = "Event/Specialty Medal Aggregator"
-WR_BY_NATION = "WR by Nation"
+WR_BY_NATION = "WR Stats"
 
 
 def initialize_state():
