@@ -229,8 +229,8 @@ EVENTS = (
         key="pentathlon",
         label="Pentathlon",
         specialty="Combined",
-        men_name="Pentathlon",
-        women_name="Pentathlon",
+        men_name="Pentathlon Men",
+        women_name="Pentathlon Women",
     ),
     EventDefinition(
         key="long_combined",

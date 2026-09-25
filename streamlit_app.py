@@ -7,6 +7,7 @@ import urls as url
 from medal_views import (
     render_event_specialty_medal_tool,
     render_inc_medals_tool,
+    render_world_record_nation_tool,
 )
 from scraper import login
 from scraper_utils import extract_logged_in_user_data
@@ -20,6 +21,7 @@ ATHLETE_CSV = "Athlete CSV"
 OFFICIAL_COMP_INCOME = "Official Competition Income"
 INC_MEDALS = "INC Medal Counts"
 EVENT_SPECIALTY_MEDALS = "Event/Specialty Medal Aggregator"
+WR_BY_NATION = "WR by Nation"
 
 
 def initialize_state():
@@ -153,12 +155,13 @@ def render_navigation(
             OFFICIAL_COMP_INCOME,
             INC_MEDALS,
             EVENT_SPECIALTY_MEDALS,
+            WR_BY_NATION,
         )
     else:
         tools = (
             OFFICIAL_COMP_INCOME,
             INC_MEDALS,
-            EVENT_SPECIALTY_MEDALS,
+            WR_BY_NATION,
         )
 
     columns = st.columns(
@@ -205,8 +208,14 @@ def render_active_tool(
     elif active_tool == INC_MEDALS:
         render_inc_medals_tool()
 
-    elif active_tool == EVENT_SPECIALTY_MEDALS:
+    elif (
+        active_tool == EVENT_SPECIALTY_MEDALS
+        and is_authenticated
+    ):
         render_event_specialty_medal_tool()
+
+    elif active_tool == WR_BY_NATION:
+        render_world_record_nation_tool()
 
 
 initialize_state()
@@ -223,9 +232,15 @@ is_authenticated = (
     st.session_state.session is not None
 )
 
+authenticated_only_tools = {
+    ATHLETE_CSV,
+    EVENT_SPECIALTY_MEDALS,
+}
+
 if (
     not is_authenticated
-    and st.session_state.active_tool == ATHLETE_CSV
+    and st.session_state.active_tool
+    in authenticated_only_tools
 ):
     st.session_state.active_tool = (
         OFFICIAL_COMP_INCOME
